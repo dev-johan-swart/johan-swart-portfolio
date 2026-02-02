@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fictional Dark Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* RESET */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Poppins', sans-serif; line-height:1.6; color:#eee; background:#121212; }
+    a { text-decoration:none; color:inherit; }
+    img { max-width:100%; display:block; }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(18,18,18,0.95);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      border-bottom: 1px solid #333;
+    }
+    .logo { font-size:1.5rem; font-weight:600; color:#00e0ff; }
+    .nav-links { display:flex; gap:2rem; }
+    .nav-links a { transition: color 0.3s; }
+    .nav-links a:hover { color: #00e0ff; }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: url('https://images.unsplash.com/photo-1601597116846-8927d81c7d3e?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 0 1rem;
+      position: relative;
+    }
+    #hero::after {
+      content:"";
+      position:absolute;
+      top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.6);
+      z-index:0;
+    }
+    .hero-text {
+      position: relative;
+      z-index:1;
+      background: rgba(0,0,0,0.5);
+      padding:2rem;
+      border-radius:12px;
+      max-width:600px;
+      margin-bottom:2rem;
+      animation: fadeInUp 1s ease forwards;
+    }
+    .hero-text h1 { font-size:2.5rem; margin-bottom:1rem; color:#00e0ff; }
+    .hero-text p { font-size:1.2rem; margin-bottom:1.5rem; }
+    .hero-text .cta {
+      padding:0.75rem 1.5rem;
+      background:#00e0ff;
+      color:#121212;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .hero-text .cta:hover { transform: scale(1.05); background:#00b8cc; }
+
+    /* SERVICES */
+    #services {
+      padding: 6rem 2rem 2rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+    .service-card {
+      background:#1e1e1e;
+      border-radius:12px;
+      padding:2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.7); }
+    .service-card h3 { margin-bottom:1rem; font-size:1.3rem; color:#00e0ff; }
+
+    /* GALLERY / CARDS */
+    #gallery {
+      padding: 6rem 2rem 2rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery-card {
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform 0.3s;
+    }
+    .gallery-card:hover { transform: scale(1.05); }
+    .gallery-card img { width:100%; height:150px; object-fit:cover; }
+    .gallery-card p { padding:0.5rem 1rem; color:#fff; background:#111; text-align:center; }
+
+    /* CONTACT */
+    #contact {
+      padding:6rem 2rem 2rem 2rem;
+      background:#1a1a1a;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .contact-form {
+      background:#121212;
+      padding:2rem;
+      border-radius:12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      max-width:500px;
+      width:100%;
+    }
+    .contact-form h2 { margin-bottom:1.5rem; color:#00e0ff; text-align:center; }
+    .contact-form input, .contact-form textarea {
+      width:100%;
+      padding:0.75rem 1rem;
+      margin-bottom:1rem;
+      border-radius:6px;
+      border:1px solid #333;
+      font-size:1rem;
+      background:#1e1e1e;
+      color:#eee;
+    }
+    .contact-form button {
+      width:100%;
+      padding:0.75rem;
+      background:#00e0ff;
+      color:#121212;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .contact-form button:hover { transform: scale(1.05); background:#00b8cc; }
+
+    /* FOOTER */
+    footer {
+      text-align:center;
+      padding:2rem;
+      font-size:0.9rem;
+      background:#111;
+      color:#eee;
+      margin-top:2rem;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      0% { opacity:0; transform: translateY(20px); }
+      100% { opacity:1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px) {
+      .hero-text h1 { font-size:2rem; }
+      .hero-text p { font-size:1rem; }
+      nav { padding:1rem; }
+      .nav-links { gap:1rem; font-size:0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">Fictional Co.</div>
+    <div class="nav-links">
+      <a href="#hero">Home</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-text">
+      <h1>Fictional Co. Dark Theme</h1>
+      <p>Modern, responsive websites with stunning dark design and animations.</p>
+      <button class="cta" onclick="scrollToSection('#contact')">Get in Touch</button>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="service-card">
+      <h3>Web Design</h3>
+      <p>Responsive, interactive, modern designs for your clients.</p>
+    </div>
+    <div class="service-card">
+      <h3>Front-end Development</h3>
+      <p>Clean, performant, maintainable code using latest tech.</p>
+    </div>
+    <div class="service-card">
+      <h3>UI/UX</h3>
+      <p>User-centered interfaces with modern experience design.</p>
+    </div>
+    <div class="service-card">
+      <h3>SEO & Optimization</h3>
+      <p>High-speed sites that rank better in search engines.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1612831455542-13e2b8e36e04?auto=format&fit=crop&w=800&q=80" alt="Project 1">
+      <p>Project One</p>
+    </div>
+    <div class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Project 2">
+      <p>Project Two</p>
+    </div>
+    <div class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=800&q=80" alt="Project 3">
+      <p>Project Three</p>
+    </div>
+    <div class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=800&q=80" alt="Project 4">
+      <p>Project Four</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <form class="contact-form" id="contact-form">
+      <h2>Contact Us</h2>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Fictional Co. All rights reserved.
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function scrollToSection(id) {
+      document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.getElementById('contact-form').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      alert('Form submitted! Replace with backend integration.');
+      e.target.reset();
+    });
+  </script>
+
+</body>
+</html>

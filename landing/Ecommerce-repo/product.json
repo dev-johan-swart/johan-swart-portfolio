@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Headphones",
+    "price": 1499,
+    "category": "audio",
+    "image": "images/Wireless-Headphones.png",
+    "description": "Comfortable wireless headphones with crystal clear sound."
+  },
+  {
+    "id": 2,
+    "name": "Smart Watch",
+    "price": 2199,
+    "category": "accessories",
+    "image": "images/Smart Watch.png",
+    "description": "Stylish smartwatch with fitness tracking and notifications."
+  },
+  {
+    "id": 3,
+    "name": "Bluetooth Speaker",
+    "price": 899,
+    "category": "audio",
+    "image": "images/Bluetooth Speaker.png",
+    "description": "Portable speaker with deep bass and long battery life."
+  },
+  {
+    "id": 4,
+    "name": "Mechanical Keyboard",
+    "price": 1699,
+    "category": "accessories",
+    "image": "images/Mechanical Keyboard.png",
+    "description": "RGB mechanical keyboard with smooth tactile switches."
+  },
+  {
+    "id": 5,
+    "name": "LED Desk Lamp",
+    "price": 499,
+    "category": "lighting",
+    "image": "images/LED Desk Lamp.png",
+    "description": "Adjustable LED desk lamp with touch control."
+  }
+]

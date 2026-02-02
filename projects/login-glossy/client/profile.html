@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Profile — Glossy Login</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="center">
+    <div class="card">
+      <div class="header">
+        <div class="logo">ME</div>
+        <div><h2 class="h-title">Your Profile</h2><p class="h-sub">Protected area</p></div>
+      </div>
+
+      <div id="profileContent">Loading...</div>
+      <div class="sep" style="height:10px"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn" id="logoutBtn">Log out</button>
+        <button class="btn" id="setup2faBtn">Setup 2FA</button>
+        <button class="btn" id="disable2faBtn" style="background: linear-gradient(90deg,#ff6b81,#6b8bff)">Disable 2FA</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2FA modal -->
+  <div id="twofamodal" style="display:none; position:fixed; left:0; right:0; top:0; bottom:0; align-items:center; justify-content:center; background:rgba(2,6,23,0.6); z-index:9999">
+    <div style="width:380px; background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); border-radius:12px; padding:18px;">
+      <h3>2FA Setup</h3>
+      <div id="qrwrap" style="text-align:center; margin:12px 0"><img id="qrcode" alt="qr"/></div>
+      <div><small>Scan QR with authenticator (or enter secret)</small></div>
+      <div style="margin:8px 0"><input id="totptoken" class="input" placeholder="TOTP code" /></div>
+      <div style="display:flex;gap:8px"><button id="verify2fa" class="btn">Verify & Enable</button><button id="close2fa" class="btn" style="background:linear-gradient(90deg,#6ee7b7,#3b82f6)">Close</button></div>
+      <div id="twofamsg"></div>
+    </div>
+  </div>
+
+  <div id="loading" class="loading-overlay"><div class="loader"><div class="spinner"></div></div></div>
+  <script src="script.js"></script>
+  <script>
+  async function loadProfile(){
+    showLoading();
+    const r = await fetch('/api/user/me', { credentials: 'include' });
+    const data = await r.json();
+    hideLoading();
+    if (!r.ok) { window.location.href = '/login.html'; return; }
+    const u = data.user;
+    document.getElementById('profileContent').innerHTML = `<div><strong>${u.username}</strong></div><div style="font-size:13px;color:rgba(255,255,255,0.75)">${u.email}</div><div style="margin-top:8px">2FA: ${u.totp_enabled ? 'Enabled' : 'Disabled'}</div>`;
+  }
+
+  document.getElementById('logoutBtn').addEventListener('click', async () => {
+    showLoading();
+    await fetch('/api/logout', { method:'POST', credentials:'include' });
+    hideLoading();
+    window.location.href = '/';
+  });
+
+  document.getElementById('setup2faBtn').addEventListener('click', async () => {
+    showLoading();
+    const r = await fetch('/api/user/2fa/setup', { method:'POST', credentials:'include' });
+    const j = await r.json();
+    hideLoading();
+    if (!r.ok) { alert(j.error); return; }
+    document.getElementById('qrcode').src = j.qr;
+    document.getElementById('twofamodal').style.display = 'flex';
+  });
+
+  document.getElementById('verify2fa').addEventListener('click', async () => {
+    const token = document.getElementById('totptoken').value;
+    showLoading();
+    const r = await fetch('/api/user/2fa/verify', {
+      method:'POST', credentials:'include', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ token })
+    });
+    const j = await r.json();
+    hideLoading();
+    document.getElementById('twofamsg').textContent = j.ok ? '2FA enabled' : (j.error || 'Failed');
+    if (j.ok) { setTimeout(()=>{ document.getElementById('twofamodal').style.display='none'; loadProfile(); }, 800); }
+  });
+
+  document.getElementById('close2fa').addEventListener('click', () => { document.getElementById('twofamodal').style.display='none'; });
+
+  document.getElementById('disable2faBtn').addEventListener('click', async () => {
+    if (!confirm('Disable 2FA?')) return;
+    showLoading();
+    const r = await fetch('/api/user/2fa/disable', { method:'POST', credentials:'include' });
+    const j = await r.json();
+    hideLoading();
+    if (!r.ok) alert(j.error || 'Failed');
+    else loadProfile();
+  });
+
+  loadProfile();
+  </script>
+</body>
+</html>

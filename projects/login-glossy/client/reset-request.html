@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Password reset</title><link rel="stylesheet" href="style.css"/></head>
+<body>
+  <div class="center">
+    <div class="card">
+      <div class="header"><div class="logo">PW</div><div><h2 class="h-title">Reset password</h2><p class="h-sub">Enter your email</p></div></div>
+      <form id="resetReq" class="form"><input class="input" id="email" type="email" placeholder="Email" required /><button class="btn" type="submit">Request reset</button><div id="msg"></div></form>
+    </div>
+  </div>
+  <div id="loading" class="loading-overlay"><div class="loader"><div class="spinner"></div></div></div>
+  <script src="script.js"></script>
+  <script>
+  document.getElementById('resetReq').addEventListener('submit', async e => {
+    e.preventDefault(); showLoading(); clearMsg();
+    const email = document.getElementById('email').value;
+    const r = await fetch('/api/reset-request', { method:'POST', credentials:'include', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email}) });
+    const j = await r.json();
+    hideLoading();
+    showMsg('If an account exists, a reset link was sent (check email).');
+  });
+  </script>
+</body>
+</html>

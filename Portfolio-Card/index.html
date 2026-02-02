@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Card Component</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../style.css" />
+    
+
+    <!-- React and ReactDOM via CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+
+    <nav id="navbar" class="navbar"> 
+      <a href="../index.html#welcome-section" class="btn-neoglass-premium">Home</a> 
+      <a href="../projects/projects.html" class="btn-press">Projects</a>
+      <a href="../#contact" class="btn-press">Contact</a>              
+      <button id="themeToggle" class="btn-neoglass-premium">🌙</button>
+    </nav>
+
+    <div id="root"></div>
+    <main>
+
+    <script type="text/babel">
+      const { useState } = React;
+
+      // Reusable ToggleApp component
+      const ToggleApp = ({ image, message }) => {
+        const [isVisible, setIsVisible] = useState(false);
+
+        const handleToggleVisibility = () => {
+          setIsVisible(!isVisible);
+        };
+
+        return (
+          <div id="toggle-container">
+            <button onClick={handleToggleVisibility} id="toggle-button">
+              {isVisible ? "Hide" : "Show"} Certificate
+            </button>
+            <p id="message">{message}</p>
+            {isVisible && (
+              <img src={image} alt={message} width="300" />
+            )}
+          </div>
+        );
+      };
+
+      // Card component with children support
+      function Card({ name, title, bio, image, children }) {
+        return (
+          <div className="card btn">
+            {image && <img src={image} alt={name} className="card-img btn" />}
+            <h2>{name}</h2>
+            <p className="card-title">{title}</p>
+            <p>{bio}</p>
+            {children}
+          </div>
+        );
+      }
+
+      // App component
+      function App() {
+        const profiles = [
+          {
+            id: 1,
+            name: "Johan Swart",
+            title: "Front End Developer",
+            bio: "Frontend Developer focused on modern UI, interactive web experiences, and performance-driven frontend development. I am in continuous learning, applying new skills directly through real projects. I approach challenges with persistence, research, and problem-solving until I find a solution. I am open to any opportunity to gain experience, willing to start at the ground level, and motivated to grow into long-term value for the right team.",
+          },
+          {
+            id: 2,
+            name: "JavaScript Certificate",
+            title: "JavaScript Basics for Beginners",
+            bio: "A showcase of beginner JavaScript projects.",
+            toggle: true,
+            toggleImage: "./Certificate/JavaScript-Basics-For-Beginners.jpg",
+            message: "Udemy Certificate",
+          },
+          {
+            id: 3,
+            name: "Responsive Web Design Certificate",
+            title: "HTML and CSS Basics for Beginners",
+            bio: "A showcase of beginner HTML & CSS projects.",
+            toggle: true,
+            toggleImage: "./Certificate/Responsive-Web-Design-Basics.png",
+            message: "FreeCodeCamp Certificate",
+          },
+          {
+            id: 4,
+            name: "Development Libraries V8 Certificate",
+            title: "Front-End Development Libraries V8",
+            bio: "A showcase of HTML / CSS & React projects.",
+            toggle: true,
+            toggleImage: "./Certificate/Front-End-Development-Libraries-V8-Certificate.png",
+            message: "FreeCodeCamp Certificate",
+          },
+          {
+            id: 5,
+            name: "ReactJS Certificate",
+            title: "ReactJS Projects For Beginners",
+            bio: "A showcase of beginner React projects.",
+            toggle: true,
+            toggleImage: "./Certificate/ReactJS-Projects-For-Beginners.png",
+            message: "SimpliLearn Certificate",
+          },
+          {
+            id: 6,
+            name: "ReactJS Components Certificate",
+            title: "ReactJS Components Certificate",
+            bio: "A React components project.",
+            toggle: true,
+            toggleImage: "./Certificate/ReactJS Components.png",
+            message: "SimpliLearn Certificate",
+          },
+        ];
+
+        return (
+          <div className="flex-container">
+            {profiles.map((profile) => (
+              <Card key={profile.id} {...profile}>
+                {profile.toggle && (
+                  <ToggleApp
+                    image={profile.toggleImage}
+                    message={profile.message}
+                  />
+                )}
+              </Card>
+            ))}
+          </div>
+        );
+      }
+
+      // Render the App
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+
+    <!-- FOOTER -->
+    <footer>
+      &copy; 2025 All rights reserved.
+    </footer>
+
+    <script>
+      // Dark / Light Mode
+     document.querySelectorAll("#themeToggle").forEach(btn => {
+       btn.addEventListener("click", () => {
+         document.body.classList.toggle("dark");
+         const isDark = document.body.classList.contains("dark");
+
+     // update all theme buttons
+        document.querySelectorAll("#themeToggle").forEach(b => {
+          b.textContent = isDark ? "☀️" : "🌙";
+         });
+       });
+     });
+   </script>
+   </main>
+   
+     <!-- ==============================
+  Premium Full-site Translator Widget
+  English ↔ Afrikaans
+  - Works across ALL pages
+  - Auto-translates on page load
+  - Cool custom error popup
+  - Animated progress bar, badge, popup
+=============================== -->
+<style>
+  /* BACKDROP & POPUP */
+  .lang-popup-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(6px);
+      display: flex; justify-content: center; align-items: center;
+      z-index: 99999;
+      opacity: 0; pointer-events: none; transition: 0.35s ease;
+  }
+  .lang-popup-backdrop.active {opacity:1; pointer-events:all;}
+  
+  .lang-popup {
+      background: rgba(255,255,255,0.15);
+      padding: 28px 24px;
+      border-radius: 22px;
+      width: 320px;
+      text-align: center;
+      color: #fff;
+      backdrop-filter: blur(25px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      transform: translateY(40px);
+      opacity: 0;
+      transition: 0.35s ease;
+  }
+  .lang-popup.active {transform: translateY(0); opacity:1;}
+  .lang-popup h2 {margin:0 0 12px;}
+  .lang-popup p {margin:0 0 15px; opacity:0.8; font-size:14px;}
+  
+  /* BUTTONS */
+  .lang-popup button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 12px;
+      border-radius: 14px;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .lang-popup button:hover {transform: scale(1.05); box-shadow:0 6px 18px rgba(0,0,0,0.25);}
+  .lang-popup button.af-btn {background: linear-gradient(135deg,#E25A4A,#BD3A35);}    
+  .lang-popup button.en-btn {background: linear-gradient(135deg,#4A90E2,#357ABD);} 
+  .close-popup{background:none !important; color:#fff; margin-top:18px; opacity:0.7;} 
+  .close-popup:hover{opacity:1;}
+  
+  /* PROGRESS */
+  .lang-progress-container{width:100%; height:10px; background:rgba(255,255,255,0.25); border-radius:6px; margin-top:15px; overflow:hidden;} 
+  .lang-progress-bar{width:0%; height:100%; background:linear-gradient(135deg,#4A90E2,#357ABD); border-radius:6px; transition: width 0.25s ease;} 
+  
+  /* WIDGET BUTTON */
+  .lang-widget {
+      position: fixed; right: 18px; bottom: 18px;
+      width: 56px; height: 56px; border-radius: 50%;
+      display:flex; justify-content:center; align-items:center;
+      cursor:pointer; z-index:99998;
+      background:linear-gradient(135deg,#111827,#0b1220);
+      color:#fff; box-shadow:0 10px 26px rgba(6,10,20,0.28);
+      transition:transform 0.2s ease, box-shadow 0.2s ease;
+      animation: pulse 2.5s infinite;
+  }
+  .lang-widget:hover{transform:scale(1.06); box-shadow:0 14px 30px rgba(6,10,20,0.32);} 
+  @keyframes pulse {0%,100%{transform:scale(1);} 50%{transform:scale(1.08);}}
+  
+  /* BADGE */
+  .lang-badge {
+      position: fixed; left:18px; bottom:18px;
+      background: rgba(0,0,0,0.78);
+      color:white; padding:8px 12px; border-radius:12px;
+      z-index:99997; display:flex; gap:8px; align-items:center;
+      font-size:13px; opacity:0; transition:opacity 0.35s ease;
+  }
+  .lang-badge.show {opacity:1;}
+  .lang-badge button {background:#fff; color:#000; border:none; padding:4px 6px; border-radius:6px; cursor:pointer;}
+  </style>
+  
+  <!-- POPUP -->
+  <div id="langPopupBackdrop" class="lang-popup-backdrop">
+    <div id="langPopup" class="lang-popup">
+      <h2>Select Language</h2>
+      <p>Translate this page to your preferred language.</p>
+      <button class="en-btn" onclick="setLanguage('en','af')">English</button>
+      <button class="af-btn" onclick="setLanguage('af','en')">Afrikaans</button>
+      <button class="close-popup" onclick="closePopup()">Close</button>
+      <div class="lang-progress-container"><div id="langProgressBar" class="lang-progress-bar"></div></div>
+      <p id="langProgressText" style="font-size:12px;margin-top:6px;opacity:0.8">0%</p>
+      <p><small>Created by <em>Johan Swart</em></small></p>
+    </div>
+  </div>
+  
+  <!-- WIDGET -->
+  <button id="langWidget" class="lang-widget">🌐</button>
+  
+  <!-- BADGE -->
+  <div id="langBadge" class="lang-badge">
+    <span id="langBadgeText">Page translated</span>
+    <button onclick="restoreOriginalPage()">Restore</button>
+  </div>
+  
+  <script>
+  // ------------------- CONFIG -------------------
+  const LS_ORIGINALS = 'originalTextNodes';
+  const LS_LANG = 'siteLang';
+  const LS_FAIL = 'translationFail';
+  const BATCH_SIZE = 10;
+  const PAUSE_MS = 160;
+  
+  // ------------------- ELEMENTS -------------------
+  const widget = document.getElementById('langWidget');
+  const backdrop = document.getElementById('langPopupBackdrop');
+  const popup = document.getElementById('langPopup');
+  const progressBar = document.getElementById('langProgressBar');
+  const progressText = document.getElementById('langProgressText');
+  const badge = document.getElementById('langBadge');
+  
+  // ------------------- TEXT NODE WALKER -------------------
+  function getAllTextNodes() {
+      const walker = document.createTreeWalker(
+          document.body,
+          NodeFilter.SHOW_TEXT,
+          {
+              acceptNode(node) {
+                  if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+                  const skip = ["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "INPUT"];
+                  if (skip.includes(node.parentNode.tagName)) return NodeFilter.FILTER_REJECT;
+                  return NodeFilter.FILTER_ACCEPT;
+              }
+          }
+      );
+  
+      let nodes = [];
+      let n;
+      while ((n = walker.nextNode())) nodes.push(n);
+      return nodes;
+  }
+  
+  // ------------------- API TRANSLATION -------------------
+  async function getTranslation(text, from, to) {
+      const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${from}|${to}`;
+  
+      try {
+          const res = await fetch(url);
+          const data = await res.json();
+  
+          if (data?.responseStatus !== 200) {
+              localStorage.setItem(LS_FAIL, "1");
+              showErrorPopup();
+              return text;
+          }
+  
+          return data?.responseData?.translatedText || text;
+  
+      } catch (err) {
+          showErrorPopup();
+          return text;
+      }
+  }
+  
+  // ------------------- COOL CUSTOM ERROR POPUP -------------------
+  function showErrorPopup() {
+      const box = document.createElement('div');
+      box.style.position = 'fixed';
+      box.style.bottom = '30px';
+      box.style.right = '30px';
+      box.style.padding = '18px 22px';
+      box.style.background = 'rgba(255,70,70,0.9)';
+      box.style.color = '#fff';
+      box.style.borderRadius = '14px';
+      box.style.boxShadow = '0 10px 30px rgba(0,0,0,0.25)';
+      box.style.fontSize = '15px';
+      box.style.zIndex = '999999';
+      box.style.animation = 'fadeIn 0.3s ease';
+      box.innerText = 'Translation service temporarily unavailable. Please try again later.';
+  
+      document.body.appendChild(box);
+  
+      setTimeout(() => {
+          box.style.transition = '0.4s ease';
+          box.style.opacity = '0';
+          setTimeout(() => box.remove(), 400);
+      }, 2500);
+  }
+  
+  // ------------------- TRANSLATE PAGE -------------------
+  async function translatePage(from, to) {
+      if (localStorage.getItem(LS_FAIL)) return;
+  
+      const nodes = getAllTextNodes();
+      const originals = nodes.map(n => n.nodeValue);
+      localStorage.setItem(LS_ORIGINALS, JSON.stringify(originals));
+  
+      for (let i = 0; i < nodes.length; i += BATCH_SIZE) {
+          const batch = nodes.slice(i, i + BATCH_SIZE);
+  
+          for (let j = 0; j < batch.length; j++) {
+              const before = batch[j].nodeValue;
+              const after = await getTranslation(before, from, to);
+  
+              if (localStorage.getItem(LS_FAIL)) return restoreOriginalPage();
+  
+              batch[j].nodeValue = after;
+          }
+  
+          const percent = Math.round(Math.min(((i + BATCH_SIZE) / nodes.length) * 100, 100));
+          progressBar.style.width = percent + "%";
+          progressText.innerText = percent + "%";
+  
+          await new Promise(r => setTimeout(r, PAUSE_MS));
+      }
+  
+      localStorage.setItem(LS_LANG, to);
+      badge.classList.add('show');
+  }
+  
+  // ------------------- RESTORE -------------------
+  function restoreOriginalPage() {
+      const saved = localStorage.getItem(LS_ORIGINALS);
+      if (!saved) return;
+  
+      const originals = JSON.parse(saved);
+      const nodes = getAllTextNodes();
+  
+      nodes.forEach((n, i) => n.nodeValue = originals[i] || n.nodeValue);
+  
+      badge.classList.remove('show');
+  }
+  
+  // ------------------- POPUP CONTROL -------------------
+  function closePopup() {
+      backdrop.classList.remove('active');
+      popup.classList.remove('active');
+  }
+  function openPopup() {
+      backdrop.classList.add('active');
+      popup.classList.add('active');
+  }
+  
+  // ------------------- SET LANGUAGE -------------------
+  async function setLanguage(lang, from) {
+      localStorage.removeItem(LS_FAIL);
+      localStorage.setItem(LS_LANG, lang);
+  
+      openPopup();
+      await translatePage(from, lang);
+  
+      if (!localStorage.getItem(LS_FAIL)) setTimeout(() => closePopup(), 500);
+  }
+  
+  // ------------------- WIDGET CLICK -------------------
+  widget.addEventListener('click', () => openPopup());
+  
+  // ------------------- PAGE LOAD -------------------
+  window.addEventListener('load', async () => {
+      if (localStorage.getItem(LS_FAIL)) return;
+  
+      const savedLang = localStorage.getItem(LS_LANG);
+  
+      if (!savedLang) {
+          setTimeout(() => openPopup(), 400);
+      } else {
+          if (savedLang === 'af') await translatePage('en', 'af');
+          else restoreOriginalPage();
+      }
+  });
+  </script>
+
+  </body>
+</html>

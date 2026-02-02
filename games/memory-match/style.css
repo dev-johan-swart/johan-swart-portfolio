@@ -1,0 +1,32 @@
+body {
+  background: #0b0b0b;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  gap: 12px;
+  margin: 1rem 0;
+}
+
+.card {
+  width: 80px;
+  height: 80px;
+  background: #222;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.card.flipped {
+  background: #00ffcc;
+  color: #111;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Themed Tic Tac Toe</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div id="game-container">
+  
+    <h1 class="title">Themed Tic-Tac-Toe</h1>
+    <div id="theme-indicator"></div>
+
+    <div id="board-container">
+        <div id="board" class="board"></div>
+    </div>
+
+    <button id="reset-btn">Reset Game</button>
+  </div>
+
+  <!-- Winner Popup -->
+  <div id="winner-popup" class="popup hidden">
+      <canvas id="confetti-canvas"></canvas>
+      <div class="popup-content">
+        <span id="winner-text"></span>
+        <button id="close-popup">Close</button>
+      </div>
+  </div>
+
+  <!-- Floating minimize circle -->
+  <div id="minimize-circle" class="minimize-circle hidden">⚔</div>
+
+  <script src="game.js"></script>
+</body>
+</html>

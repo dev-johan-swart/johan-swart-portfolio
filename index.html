@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4PL0R1T56Z');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frontend developer portfolio showcasing modern, performant web applications built with HTML, CSS, JavaScript, and accessibility-first design."/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+    <script src="side-menu.js" defer></script>
+    <script src="contact.js" defer></script>
+  
+    <title>Johan Swart | Frontend Developer</title>
+  </head>
+  <body>
+
+    <nav id="navbar" class="navbar">
+      <button id="menuToggle" class="btn-neoglass-premium">☰ Menu</button>  
+      <a href="#welcome-section" class="btn-press">Welcome</a>
+      <a href="#about" class="btn-press">About</a>
+      <a href="#projects" class="btn-press">Projects</a>
+      <a class="btn-press" id="openContact">Message</a>
+
+      <button id="themeToggle" class="btn-press">🌙</button>
+    </nav>
+
+    <nav id="sideMenu" class="side-menu" insert>
+      <ul>
+        <li><a href="#" onclick="alert('You are Home!')">⁝ 🏠 Home</a></li>
+        <li><a href="#" data-menu="other">⁝ 🔥 Games</a></li>
+        <li><a href="#" data-menu="github">⁝ 🔗 GitHub Links</a></li>
+        <li><a href="./projects/projects.html" class="external-link">⁝ 🚀 More Projects</a></li>
+        <li><a href="./Portfolio-Card/index.html" class="external-link">⁝ 📂 My Certificates</a></li>
+        <li><a href="https://johan-swart-portfolio.netlify.app/" class="external-link">⁝ 🌐 Portfolio</a></li>
+        <li><a href="#" data-menu="extra">⁝ 💣 Extra</a></li>
+        <li><a href="#" data-menu="help">⁝ ❓ Help</a></li>
+        <li><a href="#" data-menu="settings">⁝ ⚙️ Settings</a></li>
+      </ul>
+
+      <div id="menuOther" class="menu-panel hidden-panel">
+        <h2>Games</h2>
+        <ul>
+          <li>
+            <button class="game-link" onclick="goToGame('./games/snakes/index.html')">
+              Snakes
+            </button>
+          </li>
+          
+          <li>
+            <button class="game-link" onclick="goToGame('./games/memory-match/index.html')">
+              Memory
+            </button>
+          </li>
+          
+          <li>
+            <button class="game-link" onclick="goToGame('./games/reaction/reaction.html')">
+              Reaction
+            </button>
+          </li>          
+        </ul>
+        <p class="small-note">
+          Demonstrating logic, UI control, and user input handling.
+        </p>        
+       </div>
+
+       <div id="menuGithub" class="menu-panel hidden-panel">
+        <h3>Live App Links</h3>
+        <ul>
+          <li><a href="https://dev-johan-swart.github.io/letter-app-dad/" target="_blank" class="external-link">Letter-App (Dad)</a></li>
+          <li><a href="https://dev-johan-swart.github.io/letter-app-mom/" target="_blank" class="external-link">Letter-App (Mom)</a></li>
+          <li><a href="https://dev-johan-swart.github.io/letter-app-wife/" target="_blank" class="external-link">Letter-App (Wife)</a></li>
+        </ul>
+        <p class="small-note">Installable Letter Applications (PWA)</p>
+       </div>  
+
+     <div id="menuExtra" class="menu-panel hidden-panel">
+      <h2>Extra</h2>
+      <p>Additional Study Material.</p>
+      <button id="studyButton" class="game-link">React Material</button>
+     </div>
+
+     <div id="menuHelp" class="menu-panel hidden-panel">
+      <h3>Help & Troubleshoot</h3>
+      <ul>
+        <li><button class="game-link" onclick="openTroubleshoot()">Troubleshoot</button></li>
+        <li><button class="game-link" onclick="alert('Help section coming soon!')">Help</button></li>
+      </ul>
+     </div>
+
+     <div id="menuSettings" class="menu-panel hidden-panel">
+      <h2>Settings</h2>
+      <p>Here you can adjust your preferences.</p>
+      <button id="themeToggleMenu" class="game-link">🌙/☀️</button>
+     </div>
+    </nav>
+    
+    <main>
+      
+     <div id="home" class="page"></div>
+    
+    <section id="welcome-section" class="page active">
+      <h1>I'm Johan Swart</h1>
+      <p class="special-text"><strong>Junior Frontend Developer crafting clean, interactive web experiences</strong></p>
+      
+      <p class="special"><em>HTML, CSS, JavaScript, React</em></p>
+    </section>
+      
+      <section id="about">
+        <h2><u>About:</u></h2>
+      </section>
+        
+       <section id="bio-skills" class="section section-bio-skills" aria-labelledby="bio-heading">
+          <div class="bio-skills-wrap">
+
+         <div class="card-base bio-col">
+         <h2 id="bio-heading">❏&nbsp;&nbsp; Know More About Me ⁝</h2>
+         ✧ ✦
+         <p class="about-text">
+          I’m a frontend developer focused on building clean, responsive, and accessible web interfaces. I specialize in turning design concepts into performant, user-friendly experiences using HTML, CSS, JavaScript, and React.
+        </p>
+
+         <!-- PHOTO CARD -->
+         <div class="photo-card btn-reflect-soft" id="photo-card">
+          <img src="./assets/portfolio-image.png" alt="Frontend developer portfolio hero section" width="90" height="150" fetchpriority="high" loading="eager" alt="Portfolio image">
+         </div>
+         ✦
+         <p class="about-text">I’ve built and deployed multiple projects independently, handling everything from layout and animations to responsive behavior and deployment. I care deeply about clarity in code, thoughtful UI decisions, and creating products that feel intuitive to use.
+         </p>
+         <br />
+         ✧
+         <p class="about-text">I’m currently seeking a frontend developer role where I can contribute to real products, collaborate with a team, and continue growing while delivering reliable, well-crafted UI solutions.
+         </p>
+         <br />
+         <p class="about-text">
+          Open to junior frontend or frontend-focused roles, remote or hybrid, where
+          clean UI, collaboration, and long-term product quality matter.
+         </p>          
+        
+         </div>
+      
+         <!-- RIGHT COLUMN -->
+         <div id="skills" class="card-base skills-col">
+         <h3>❏&nbsp;&nbsp; Skills & Expertise ⁝</h3>
+
+         <!-- Frontend Development -->
+         <h4>✧ Frontend Core</h4>
+         <ul class="skills-list category">
+        
+          <li class="tooltip" data-tooltip="Semantic, accessible HTML structure">
+            HTML5 & Accessibility
+            <div class="skill-bar-mini"><div style="--final-width: 95%"></div></div>
+          </li>
+        
+          <li class="tooltip" data-tooltip="Modern layouts using Grid and Flexbox">
+            CSS Layout Systems
+            <div class="skill-bar-mini"><div style="--final-width: 92%"></div></div>
+          </li>
+        
+          <li class="tooltip" data-tooltip="Clean, maintainable ES6+ JavaScript">
+            JavaScript (ES6+)
+            <div class="skill-bar-mini"><div style="--final-width: 88%"></div></div>
+          </li>
+        
+          <li class="tooltip" data-tooltip="Component-based UI with hooks and state">
+            React (Components & Hooks)
+            <div class="skill-bar-mini"><div style="--final-width: 80%"></div></div>
+          </li>
+        </ul>        
+       
+       <!-- UI / UX & Visual Design -->
+       <h4>✦ UI / UX & Interaction</h4>
+       <ul class="skills-list category">
+      
+        <li class="tooltip" data-tooltip="Visual hierarchy, spacing, usability">
+          UI/UX Principles
+          <div class="skill-bar-mini"><div style="--final-width: 90%"></div></div>
+        </li>
+      
+        <li class="tooltip" data-tooltip="Hover states, transitions, micro-details">
+          Animations & Microinteractions
+          <div class="skill-bar-mini"><div style="--final-width: 88%"></div></div>
+        </li>
+      
+        <li class="tooltip" data-tooltip="Theming, dark mode, CSS variables">
+          Design Systems & Theming
+          <div class="skill-bar-mini"><div style="--final-width: 86%"></div></div>
+        </li>
+      </ul>      
+       
+       <!-- Components & Reusable UI -->
+       <h4>✧ Components & UI Systems</h4>
+       <ul class="skills-list category">
+       
+        <li class="tooltip" data-tooltip="Reusable cards, sliders, modals, menus">
+          Reusable UI Components
+          <div class="skill-bar-mini"><div style="--final-width: 90%"></div></div>
+        </li>
+       
+        <li class="tooltip" data-tooltip="State-driven interactive behavior">
+          Interactive Widgets
+          <div class="skill-bar-mini"><div style="--final-width: 88%"></div></div>
+        </li>
+       
+        <li class="tooltip" data-tooltip="Scalable component structure and logic">
+          Component Architecture
+          <div class="skill-bar-mini"><div style="--final-width: 86%"></div></div>
+        </li>
+       </ul>
+       
+       <!-- API & Backend Basics -->
+       <h4>✦ Data & Workflow</h4>
+       <ul class="skills-list category">
+      
+        <li class="tooltip" data-tooltip="Fetching APIs, handling async state">
+          API Integration
+          <div class="skill-bar-mini"><div style="--final-width: 78%"></div></div>
+        </li>
+      
+        <li class="tooltip" data-tooltip="Git workflows and version control">
+          Git & Version Control
+          <div class="skill-bar-mini"><div style="--final-width: 75%"></div></div>
+        </li>
+      
+        <li class="tooltip" data-tooltip="Deploying to Netlify, Vercel, GitHub Pages">
+          Deployment & Hosting
+          <div class="skill-bar-mini"><div style="--final-width: 80%"></div></div>
+        </li>
+      </ul>      
+
+        </div>        
+       </div>
+      
+       </div>
+       </section>
+      </section>
+
+      <section id="portfolio-readme" class="section-readme">
+        <div class="readme-card">
+          <h2>📘 About This Portfolio</h2>
+      
+          <p>
+            This portfolio is a curated collection of projects I’ve designed, built,
+            and deployed independently. Each project focuses on clean structure,
+            thoughtful UI decisions, and practical JavaScript logic.
+          </p>
+      
+          <p>
+            My goal is to create interfaces that feel intuitive, responsive, and
+            purposeful — balancing visual polish with maintainable, readable code.
+          </p>
+      
+          <ul class="readme-points">
+            <li>✔️ Accessibility-first HTML structure</li>
+            <li>✔️ Responsive layouts using Flexbox & Grid</li>
+            <li>✔️ Component-based thinking (vanilla JS & React)</li>
+            <li>✔️ Deployed, real-world usable projects</li>
+          </ul>
+      
+          <p class="readme-note">
+            I’m actively seeking a frontend role where I can contribute to real
+            products, collaborate with others, and continue growing as a developer.
+          </p>
+        </div>
+      </section>
+
+      <section id="featured-project" class="featured-project-section">
+        <h2 class="featured-title">✨ Featured Project</h2>
+      
+        <div class="featured-wrapper">
+          <section class="featured-tile">
+            <span class="featured-label">Signature Work</span>
+      
+            <h3 class="featured-heading">
+              Installable Letter Application (PWA)
+            </h3>
+      
+            <a
+              href="https://dev-johan-swart.github.io/letter-app-wife/final.html"
+              target="_blank"
+              class="featured-card btn-neoglass-premium"
+            >
+              <img
+                src="../assets/icon-192.png"
+                alt="Letter App PWA preview"
+                width="140"
+                height="180"
+                loading="lazy"
+              />
+              <span class="gold-dust"></span>
+            </a>
+      
+            <p class="featured-description">
+              A fully completed, installable Progressive Web App designed as a calm,
+              distraction-free letter reading experience. Built with offline support,
+              responsive layout, and production-ready polish.
+            </p>
+      
+            <p class="featured-note">
+              Originally created as a personal letter experience — demonstrating
+              emotional design, real-world usage, and thoughtful UI decisions.
+            </p>
+      
+            <div class="featured-tech">
+              HTML • CSS • JavaScript • PWA • Offline Support
+            </div>
+          </section>
+        </div>
+      </section>      
+
+       <!-- SLIDESHOW FOR PROJECTS -->
+       <section class="slide-background">
+        <div class="slideshow-container" id="projects-slideshow">
+          
+          <div class="slides-wrapper">
+            <div class="slide">
+              <img src="assets/Landing-1.png" alt="OTP Generator">
+              <div class="caption">&lt; Landing Page /&gt;</div>
+            </div>
+            
+            <div class="slide">
+                <img src="assets/Login.png" alt="Featuristic Login">
+                <div class="caption">&lt; My Login Demo /&gt;</div>
+            </div>
+    
+            <div class="slide">
+                <img src="assets/Login2.png" alt="Secure Login Demo">
+                <div class="caption">&lt; Login Demo /&gt;</div>
+              </div>
+              
+              <div class="slide">
+                <img src="assets/Weather-app.png" alt="Weather App">
+                <div class="caption">&lt; Weather App /&gt;</div>
+            </div>
+            
+              <div class="slide">
+                <img src="assets/OTP.png" alt="Quote">
+                <div class="caption">&lt; OTP Generator /&gt;</div>
+              </div>
+              
+              <div class="slide">
+                <img src="assets/tic-tac-toe.png" alt="tic-tac-toe">
+                <div class="caption">&lt; Tic-Tac-Toe /&gt;</div>
+              </div>
+              
+              <div class="slide">
+                <img src="assets/e-com1.png" alt="Dark Landing Page">
+                <div class="caption">&lt; E-Commerce Demo 1 /&gt;</div>
+              </div>
+              
+              <div class="slide">
+                <img src="assets/e-com2.png" alt="E-Commerce Repo">
+                <div class="caption">&lt; E-Commerce Demo 2 /&gt;</div>
+              </div>
+            </div>
+
+        <button class="prev btn-reflect-soft">&#10094;</button>
+        <button class="next btn-reflect-soft">&#10095;</button>
+      </div>
+
+      <section id="projects" class="Projects">
+        <h2><u>Here are some of my projects:</u> 
+           <span class="unique-text"> Landing & Login Pages </span>
+        </h2>
+        <div class="project-grid">
+
+          <section id="personal-landing">
+            <h3 class="neon-arrow">Personal Landing Page Demo</h3>
+            <a href="../landing/index-2.html" class="project-tile project-card btn-neoglass-premium">
+              <span class="project-badge featured-project">Featured</span>
+              <img src="../assets/landing-1.png" alt="Landing page design preview" width="90" height="150" loading="lazy" class="project-card-img">
+            </a>
+            <p class="neon-arrow">◦ A modern personal landing page built with semantic HTML and CSS, focusing on clean layout structure, visual hierarchy, and responsive design principles </p>
+          </section>
+
+          <section id="login-secure">
+            <h3 class="neon-arrow">Secure Login Demo</h3> 
+            <a href="../projects/login-glossy/client/index.html" class="project-tile project-card btn-neoglass-premium">
+              <img src="../assets/login2.png" alt="Modern register login preview " width="90" height="150" loading="lazy" class="project-card-img">
+            </a>
+            <p class="neon-arrow">◦ A modern login interface featuring animated form inputs, responsive layout behavior, and a user-focused visual experience </p>
+          </section>
+
+          <section id="login-featured">
+            <h3 class="neon-arrow">Featuristic Login</h3> 
+            <a href="../projects/Login-with-auth/index.html" class="project-tile project-card btn-neoglass-premium">
+              <span class="project-badge">Featured</span>
+              <img src="../assets/login.png" alt="Futuristic login preview" width="90" height="150" loading="lazy" class="project-card-img">
+            </a>
+            <p class="neon-arrow">◦ A polished login interface demonstrating client-side validation, animated UI feedback, and realistic authentication flows, with strong attention to usability and visual clarity </p>
+          </section>
+
+          <section>
+            <h3 class="neon-arrow">Elegant Landing Page Demo</h3>
+            <a href="../landing/index.html" class="project-tile project-card btn-neoglass-premium">
+              <img src="../assets/landing-2.png" alt="Landing page design preview" width="90" height="150" loading="lazy" class="project-card-img">
+            </a>
+            <p class="neon-arrow">◦ A soft-toned landing page showcasing semantic markup, thoughtful spacing, and subtle interactive elements designed to enhance user engagement 
+            </p>
+          </section>
+
+          <section id="Ecommerce-demo">
+            <h3 class="neon-arrow">E - Commerce Demo</h3> 
+            <a href="./projects/Ecom-demo/ecom-demo.html" class="project-tile project-card btn-neoglass-premium">
+              <span class="project-badge">Featured</span>
+              <img src="../assets/e-com1.png" alt="Futuristic login preview" width="90" height="150" loading="lazy" class="project-card-img">
+            </a>
+            <p class="neon-arrow">◦ E-commerce landing page demonstrating layout systems, product sections, and structured UI components </p>
+          </section>
+
+          <section id="OTP-Generator">
+            <h3 class="neon-arrow">OTP Generator</h3> 
+            <a href="../projects/Password-Generator-OTP" class="project-tile project-card btn-neoglass-premium">
+              <img src="../assets/OTP.png" alt="OTP-Generator design preview" width="90" height="150" loading="lazy" class="project-card-img">
+            </a>
+            <p class="neon-arrow">◦ A lightweight one-time password generator focused on secure randomization, clean UI presentation, and practical JavaScript logic </p>
+          </section>
+
+          <section id="Weather-App">
+            <h3 class="neon-arrow">React Weather Application</h3>
+            <a href="./projects/weather-App/public/index.html" class="project-tile project-card btn-neoglass-premium">
+              <img src="../assets/weather-App.png" alt="Weather-App preview" width="734" height="526" loading="lazy" class="project-card-img">
+            </a>
+            <p class="neon-arrow">◦ A responsive React application that fetches and displays real-time weather data, demonstrates API integration, component-based architecture and dynamic state updates </p>
+          </section>
+
+        </div>
+
+      <section id="projects-2">
+        <h2><u>Other projects:</u> 
+           <span class="unique-text"> Widgets / Games </span>
+        </h2>
+        <br />
+
+        <div class="project-grid">
+        <!--Weather App Widget-->
+        <section id="my-widget">
+          <h3 class="neon-arrow">My Weather Widget</h3>
+          <div class="widget-tile widget-card" target="_blank">
+            <div id="weather-widget"></div>
+            
+          </div>
+          <p class="neon-arrow">◦ A fully functional weather widget demonstrating API integration, dynamic DOM updates, and performance-focused JavaScript in a compact, reusable component </p>
+        </section>
+
+           <!--Radio Widget-->
+          <section id="radio-widget"> <!--Try neon-Radio Widget-->
+            <h3 class="neon-arrow">Live Radio Streaming</h3>
+            <div id="neon-radio-widget" class="widget-tile widget-card"></div>
+            <p class="neon-arrow">◦ A reusable quote widget designed to demonstrate component positioning, smooth UI interactions, and modular JavaScript logic </p>
+          </section>
+          
+        </div>
+
+          <!-- Widgets Section Toggle -->
+          <input type="checkbox" id="toggleWidgets">
+          <label for="toggleWidgets" class="toggle-btn btn-reflect-soft">View More Widgets</label>
+
+        <div id="hideWidgets" class="hidden-section">
+            
+          <div class="project-grid">
+            <!-- Widget projects -->
+            <section id="quote-widget">
+              <h3 class="neon-arrow">◦ A floating widget demo</h3>
+              <div id="quote-widget-mount" class="project-tile"></div>
+              <div class="project-title project-card tic-tac-toe-widget btn-neoglass-premium">&lt; Quote Of The Day /&gt;</div>
+              <p class="neon-arrow">◦ Designed to demonstrate component positioning, smooth UI behavior, and reusable JavaScript logic </p>
+              
+           </section>
+
+           <section id="quote-widget">
+             <h3 class="neon-arrow">Quote Widget</h3>
+             <a href="projects/quote-widget/index.html" class="project-tile project-card btn-neoglass-premium">
+             <div class="project-title">&lt; Quote Of The Day /&gt;<p>&lt; Click Me /&gt;</p></div>
+             </a>
+             <p class="neon-arrow">◦ An interactive quote widget featuring dynamic content updates, animated UI elements, and a modern, futuristic design aesthetic </p>
+           </section>
+
+           <!-- Tic Tac Toe Widget Container -->
+           <section id="tic-tac-toe-widget">
+            <h3 class="neon-arrow">Fantasy Tic-Tac-Toe Widget</h3>
+            <a href="./projects/app-tic-tac-toe/app.html" target="_blank" class="project-title project-card btn-neoglass-premium">&lt; Fantasy Tic-Tac-Toe /&gt;             <span class="project-badge">Featured</span>
+            </a>
+            <div id="tic-widget"></div>
+             <script>
+              const widgetConfig = { position: 'bottom-right', accentColor:'#00ffcc', fontSize:'1.1rem' };
+             </script>
+             <p class="neon-arrow">◦ An embeddable Tic-Tac-Toe game widget demonstrating game logic, state management, and modular JavaScript architecture </p>
+           </section> 
+           
+           <!--Mount Widgets-->
+           <script src="radio.js" defer></script>
+           <script src="embed-widget.js" defer></script>
+           <script src="embed.js"></script>
+           <script src="./projects/weather-widget.js" defer></script>
+           <script>FantasyTicTacToeWidget.mount('#tic-widget');</script>
+
+          </div>
+      
+          <script>
+            const toggleWidgets = document.getElementById('toggleWidgets');
+            const labelWidgets = document.querySelector('label[for="toggleWidgets"]');
+            const widgetsSection = document.getElementById('hideWidgets');
+
+            widgetsSection.style.display = "none";
+
+            toggleWidgets.addEventListener('change', () => {
+              labelWidgets.textContent = toggleWidgets.checked
+              ? "View Less Widgets"
+              : "View Widgets";
+
+            widgetsSection.style.display = toggleWidgets.checked ? "block" : "none";
+            });
+          </script>
+
+        </div>
+      </section>
+
+      <h2><u>Beginner Projects:</u>
+        <span class="unique-text"> JavaScript & React</span>
+      </h2>
+      <br />
+
+      <!-- Hidden Projects Section Toggle -->
+      <input type="checkbox" id="toggleProjects">
+      <label for="toggleProjects" class="toggle-btn btn-neoglass-premium">Click to View</label>
+
+      <script>
+        const toggle = document.getElementById('toggleProjects');
+        const label = document.querySelector('label[for="toggleProjects"]');
+      
+        toggle.addEventListener('change', () => {
+          label.textContent = toggle.checked
+            ? "View Less Projects"
+            : "View More Projects";
+        });
+      </script>
+
+      <div id="hide" class="project-grid">
+        
+        <section id="25+5-clock">
+          <h3 class="neon-arrow">React - 25 + 5 Clock</h3> 
+          <a href="../projects/react-25-5-clock/build/index.html" class="project-tile project-card btn-neoglass-premium">
+            <div class="project-title">&lt; 25 + 5 Clock /&gt;</div>
+          </a>
+          <p class="neon-arrow">◦ A productivity timer built with React, demonstrating state management, component logic, and user interaction handling </p>
+        </section>
+
+        <section id="fcc-calculator-final">
+          <h3 class="neon-arrow">JavaScript Calculator</h3> 
+          <a href="../projects/fcc-calculator-final/build/index.html" class="project-tile project-card btn-neoglass-premium">
+            <div class="project-title">&lt; JS Calculator /&gt;</div>
+          </a>
+          <p class="neon-arrow">◦ A fully functional calculator showcasing clean logic flow, precise input handling, and real-time calculation updates </p>
+        </section>
+
+        <section id="My-calculator">
+          <h3 class="neon-arrow">My Calculator (Custom Build)</h3>
+          <a href="../projects/js-calculator/build/index.html" class="project-tile project-card btn-neoglass-premium">
+            <div class="project-title">&lt; Calculator /&gt;</div>
+          </a>
+          <p class="neon-arrow">◦ A calculator built from scratch to improve usability, layout consistency, and calculation accuracy beyond a basic implementation </p>
+        </section>
+
+        <section id="drum-machine">
+          <h3 class="neon-arrow">Drum Machine</h3>
+          <a href="../projects/drum-machine/build/index.html" class="project-tile project-card btn-neoglass-premium">
+            <div class="project-title">&lt; Drum Machine /&gt;</div>
+          </a>
+          <p class="neon-arrow">◦ An interactive drum machine where keyboard input triggers audio playback, demonstrating event handling and sound integration in JavaScript </p>
+        </section>
+
+        <section id="Quote-Machine">
+          <h3 class="neon-arrow">Random Quote Machine</h3>
+          <a href="../projects/random-quote-machine/build/index.html" class="project-tile project-card btn-neoglass-premium">
+            <div class="project-title">&lt; Quote Machine /&gt;</div>
+          </a>
+          <p class="neon-arrow">◦ A dynamic quote generator focusing on API usage, state updates, and clean UI presentation </p>
+        </section>
+
+        <section id="Markdown-Previewer">
+          <h3 class="neon-arrow">Markdown Previewer</h3> 
+          <a href="../projects/markdown-previewer/build/index.html" class="project-tile project-card btn-neoglass-premium">
+            <div class="project-title">&lt; Markdown Previewer /&gt;</div>
+          </a>
+          <p class="neon-arrow">◦ A live Markdown previewer that converts user input into formatted output in real time, highlighting text parsing and reactive UI updates </p>
+        </section>
+
+      </div>
+    </section>
+
+    </main>
+
+    <section id="contact-2" class="contact-2">
+      <h3>Working smarter</h3>
+      <p>Let's work together...</p>
+    </section>
+    
+    <section id="contact" class="contact">
+      <a href="https://github.com/dev-johan-swart" class="external-link">GitHub</a>
+      <a href="./projects/projects.html" class="external-link">Projects Playground</a>
+      <a href="mailto:johan.swart.dev@gmail.com?subject=Portfolio Inquiry">Email</a>
+      <a href="https://wa.me/+27783944289">WhatsApp</a>
+    </section>       
+
+    <!-- CONTACT OVERLAY -->
+    <div id="contactOverlay" class="contact-overlay"></div>
+
+    <!-- CONTACT PANEL -->
+    <div id="contactPanel" class="panel">
+     <div class="header">
+     <h2>Let’s Work Together</h2>
+     <div class="close" id="closeContact">×</div>
+     </div>
+
+     <form
+       id="contact-form"
+       action="https://formspree.io/f/xvzqbbed"
+       method="POST"
+      >
+       <label for="name">Name *</label>
+       <input type="text" id="name" name="name" autocomplete="name" required>
+       <label for="email">Email *</label>
+       <input name="email" id="email" autocomplete="email" type="email" required>
+       <label for="message">Message *</label>
+       <textarea name="message" id="message" rows="5" autocomplete="off" required></textarea>
+
+       <button type="submit" class="button-submit">Send Message</button>
+       <div id="msg"></div>
+     </form>
+    </div>
+
+    <button class="float-btn" id="openContactFloat" aria-label="Contact me">
+      💬
+    </button>    
+
+    <footer>
+      <p>© Created by <em>Dev Johan Swart</em></p>
+    </footer>
+
+     <script>
+    /* =========================================================
+       UNIVERSAL MULTI-SLIDE CAROUSEL SYSTEM
+       ========================================================= */
+       function createCarousel(slideshowId, visibleSlides = 2, autoSpeed = 3000) {
+
+    const container = document.getElementById(slideshowId);
+    if (!container) return;
+
+    const wrapper = container.querySelector(".slides-wrapper");
+    const slides = container.querySelectorAll(".slide");
+    const prevBtn = container.querySelector(".prev");
+    const nextBtn = container.querySelector(".next");
+
+    if (!wrapper || slides.length === 0) return;
+
+    let index = 0;
+    const totalSlides = slides.length;
+
+    slides.forEach(slide => {
+        slide.style.minWidth = (100 / visibleSlides) + "%";
+    });
+
+    function updateSlidePosition() {
+        wrapper.style.transform =
+          `translateX(-${(100 / visibleSlides) * index}%)`;
+    }
+
+    function nextSlide() {
+        index = (index + 1) > totalSlides - visibleSlides ? 0 : index + 1;
+        updateSlidePosition();
+    }
+
+    function prevSlide() {
+        index = (index - 1) < 0 ? totalSlides - visibleSlides : index - 1;
+        updateSlidePosition();
+    }
+
+    let timer = setInterval(nextSlide, autoSpeed);
+
+    function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(nextSlide, autoSpeed);
+    }
+
+    if (nextBtn && prevBtn) {
+        nextBtn.addEventListener("click", () => {
+            nextSlide();
+            resetTimer();
+        });
+
+        prevBtn.addEventListener("click", () => {
+            prevSlide();
+            resetTimer();
+        });
+    }
+
+    updateSlidePosition();
+}
+
+    
+    /* =========================================================
+       INITIALIZE SLIDESHOWS
+       ========================================================= */
+    document.addEventListener("DOMContentLoaded", () => {
+    
+        // PROJECT SLIDESHOW — Show 2 items at a time
+        createCarousel("projects-slideshow", 2, 2500);
+    
+        // LANDING SLIDESHOW — You can pick how many to show
+        createCarousel("landing-slideshow", 1, 4000);
+    });
+    
+    </script>
+
+  </body>
+</html>

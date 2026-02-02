@@ -1,0 +1,13 @@
+.reaction-box {
+  width: 620px;
+  height: 500px;
+  background: #222;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}

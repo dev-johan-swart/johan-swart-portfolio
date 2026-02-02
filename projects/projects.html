@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    
+    <title>Portfolio Webpage Projects</title>
+  </head>
+  <body>
+
+    <nav id="navbar" class="navbar">
+      <a href="../index.html#welcome-section" class="btn-press">Home</a>
+      <a href="#welcome-section" class="btn-press">Welcome</a>
+      <a href="#projects" class="btn-press">Projects</a>
+      <a class="btn-press" href="../index.html#contact" data-open-contact>Contact</a>              
+      <button id="themeToggle" class="btn-neoglass-premium">🌙</button>
+    </nav>
+    
+    <main>
+
+     <div id="home" class="page">
+     </div>
+
+      <section id="welcome-section" class="page active">
+        <h1>Welcome to</h1>
+        <p class="special-text"><strong>&lt; My Playground &gt;</strong></p>
+      </section>
+        
+      <section id="projects">
+          <h2><u>Access to Some of My Projects:</u> 
+             <span class="unique-text"> Demo Projects </span>
+          </h2>
+          <br />
+
+          <!-- SLIDESHOW FOR FIRST 4 PROJECTS -->
+          <div class="slideshow-container project-slideshow btn-reflect-soft" id="projects-slideshow">
+
+            <div class="slides-wrapper">
+                <div class="slide">
+                    <img src="../assets/OTP.png" alt="OTP Generator">
+                    <div class="caption">&lt; OTP Generator /&gt;</div>
+                </div>
+        
+                <div class="slide">
+                    <img src="../assets/Login.png" alt="Featuristic Login">
+                    <div class="caption">&lt; My Login Demo /&gt;</div>
+                </div>
+        
+                <div class="slide">
+                    <img src="../assets/Login2.png" alt="Secure Login Demo">
+                    <div class="caption">&lt; Login Demo /&gt;</div>
+                </div>
+        
+                <div class="slide">
+                    <img src="../assets/Weather-app.png" alt="Weather App">
+                    <div class="caption">&lt; Weather App /&gt;</div>
+                </div>
+
+                  <div class="slide">
+                    <img src="../assets/landing-1.png" alt="Landing Page">
+                    <div class="caption">&lt; Landing Page Demo /&gt;</div>
+                  </div>
+                  <div class="slide">
+                    <img src="../assets/landing-2.png" alt="Demo Landing Page">
+                    <div class="caption">&lt; Landing Page Demo /&gt;</div>
+                  </div>
+                  <div class="slide">
+                    <img src="../assets/e-com1.png" alt="Dark Ecommerce Page">
+                    <div class="caption">&lt; E-Commerce Demo /&gt; - Dark Theme</div>
+                  </div>
+                  <div class="slide">
+                    <img src="../assets/e-com2.png" alt="E-Commerce Repo">
+                    <div class="caption">&lt; E-Commerce Demo /&gt; - Modern</div>
+                  </div>
+            </div>
+        
+            <button class="prev btn-reflect-soft">&#10094;</button>
+            <button class="next btn-reflect-soft">&#10095;</button>
+        </div>
+          
+        <!-- MASTER TOGGLE BUTTON -->
+       <input type="checkbox" id="toggleAll">
+       <label for="toggleAll" class="toggle-btn btn-neoglass-premium">View My Projects</label>
+
+       <!-- WRAPS EVERYTHING BELOW -->
+       <section id="all-projects-wrapper" style="display:none;">
+         <br />
+
+         <div class="project-grid">
+
+          <section id="OTP-Generator">
+            <h3>OTP Generator</h3> 
+            <a href="../projects/Password-Generator-OTP" class="project-tile project-card btn-neoglass-premium" target="_blank">
+              <div class="project-title">&lt; OTP-Generator /&gt;</div>
+            </a>
+            <p class="neon-arrow">◦ A lightweight OTP generator that creates secure, randomized one-time passwords, focusing on simplicity, clarity, and practical frontend logic. </p>
+          </section>
+
+          <section id="Login-page">
+            <h3>Featuristic Login</h3> 
+            <a href="../projects/Login-with-auth/index.html" class="project-tile project-card btn-neoglass-premium" target="_blank">
+              <div class="project-title">&lt; My Login /&gt;</div>
+            </a>
+            <p class="neon-arrow">◦ A polished login interface featuring client-side validation, animated UI interactions, and realistic authentication-style user flows, with a strong focus on usability and visual feedback.</p>
+          </section>
+
+          <section id="Login-Page">
+            <h3>Secure Login Demo</h3> 
+            <a href="../projects/login-glossy/client/index.html" class="project-tile project-card btn-neoglass-premium" target="_blank">
+              <div class="project-title">&lt; Login Demo /&gt;</div>
+            </a>
+            <p class="neon-arrow">◦ A modern login interface featuring animated form inputs, responsive layout design, and a clean, user-focused visual experience.</p>
+          </section>
+
+          <section id="Weather-App">
+            <h3>React Weather Application</h3>
+            <a href="./weather-App/public/index.html" class="project-tile project-card btn-neoglass-premium" target="_blank">
+              <div class="project-title">&lt; Weather App /&gt;<p class="neon-arrow">&lt; Demo CSS /&gt;</p></div>
+            </a>
+            <p class="neon-arrow">◦ A responsive React application that fetches and displays real-time weather data.
+              Features a live-updating forecast widget, clean UI, and component-based architecture. </p>
+          </section>
+
+          <section>
+            <h3>&lt; Landing Page Demo 1 /&gt;</h3>
+            <a href="../landing/index-2.html" class="project-tile project-card btn-neoglass-premium" target="_blank">
+              <div class="project-title">&lt; Landing Page Demo /&gt;</div>
+            </a>
+            <p class="neon-arrow">◦ A modern personal landing page built with semantic HTML and CSS, emphasizing clean layout structure, visual hierarchy, and interactive UI elements.</p>
+          </section>
+      
+          <section>
+            <h3>&lt; Landing Page Demo 2 /&gt;</h3>
+            <a href="../landing/showcase-section/index.html" class="project-tile project-card btn-neoglass-premium" target="_blank">
+              <div class="project-title">&lt; Landing Page Demo /&gt;</div>
+            </a>
+            <p class="neon-arrow">Interactive landing page featuring theme switching, reusable components, and responsive layout behavior.</p>
+          </section>
+          
+          <section>
+            <h3>&lt; Landing Page Demo 3 /&gt;</h3>
+            <a href="../landing/index.html" class="project-tile project-card btn-neoglass-premium" target="_blank">
+              <div class="project-title">&lt; Landing Page Demo /&gt;</div>
+            </a>
+            <p class="neon-arrow">◦ Soft-toned landing page built with semantic HTML and CSS, focusing on clean layout, visual hierarchy, and interactive UI elements.</p>
+          </section>
+
+          <section>
+            <h3>&lt; Landing Page Demo 4 /&gt;</h3>
+            <a href="../landing/ProTech Solutions/index.html" class="project-tile project-card btn-neoglass-premium" target="_blank">
+              <div class="project-title">&lt; Landing Page /&gt;</div>
+            </a>
+            <p class="neon-arrow">◦ Business-style landing page designed to simulate a real-world company website with modern UI patterns.</p>
+          </section>
+      
+          <section>
+            <h3>E-Commerce Demo 1</h3>
+            <a href="../landing/Ecommerce-repo/index.html" class="project-tile project-card btn-neoglass-premium" target="_blank">
+              <div class="project-title">&lt; E-Commerce Demo /&gt;</div>
+            </a>
+            <p class="neon-arrow">◦ Responsive e-commerce page showcasing component reuse, grid layouts, and scalable UI structure.</p>
+          </section>
+          
+          <section>
+            <h3>E-Commerce Demo 2</h3>
+            <a href="../landing/Ecommerce-demo/ecommerce-demo.html" class="project-tile project-card btn-neoglass-premium" target="_blank">
+              <div class="project-title">&lt; E-Commerce Demo /&gt;</div>
+            </a>
+            <p class="neon-arrow">◦ E-commerce landing page demonstrating layout systems, product sections, and structured UI components.</p>
+          </section>
+
+        </div>
+
+        <h2><u>More Projects:</u>
+            <span class="unique-text"> JavaScript & React</span>
+          </h2>
+          <br />
+
+        <!-- Hidden Projects Section Toggle -->
+        <input type="checkbox" id="toggleProjects">
+        <label for="toggleProjects" class="toggle-btn btn-reflect-soft">View More Projects</label>
+
+        <script>
+          const toggle = document.getElementById('toggleProjects');
+          const label = document.querySelector('label[for="toggleProjects"]');
+        
+          toggle.addEventListener('change', () => {
+            label.textContent = toggle.checked
+              ? "View Less Projects"
+              : "View More Projects";
+          });
+        </script>
+
+        <div id="hide">
+          <section id="25+5-clock">
+            <h3>React - 25 + 5 Clock</h3> 
+            <a href="../projects/react-25-5-clock/build/index.html" class="project-tile project-card btn-neoglass-premium" target="_blank">
+              <div class="project-title">&lt; 25 + 5 Clock /&gt;</div>
+            </a>
+            <p class="neon-arrow">◦ A productivity timer built with React, designed for focused study or exercise sessions. Demonstrates state management, component logic, and user interaction handling.</p>
+          </section>
+
+          <section id="fcc-calculator-final">
+            <h3>JavaScript Calculator</h3> 
+            <a href="../projects/fcc-calculator-final/build/index.html" class="project-tile project-card btn-neoglass-premium" target="_blank">
+              <div class="project-title">&lt; JS Calculator /&gt;</div>
+            </a>
+            <p class="neon-arrow">◦ A fully functional JavaScript calculator showcasing clean logic flow, input handling, and accurate real-time calculations.</p>
+          </section>
+
+          <section id="My-calculator">
+            <h3>My Calculator</h3>
+            <a href="../projects/js-calculator/build/index.html" class="project-tile project-card btn-neoglass-premium" target="_blank">
+              <div class="project-title">&lt; Calculator /&gt;</div>
+            </a>
+            <p class="neon-arrow">◦ A refined calculator project built from scratch to improve usability, layout, and calculation accuracy beyond a basic implementation. </p>
+          </section>
+
+          <section id="drum-machine">
+            <h3>Drum Machine</h3>
+            <a href="../projects/drum-machine/build/index.html" class="project-tile project-card btn-neoglass-premium" target="_blank">
+              <div class="project-title">&lt; Drum Machine /&gt;</div>
+            </a>
+            <p class="neon-arrow">◦ An interactive drum machine where keyboard input triggers sound playback, demonstrating event handling and audio integration in JavaScript</p>
+          </section>
+
+          <section id="Quote-Machine">
+            <h3>Random Quote Machine</h3>
+            <a href="../projects/random-quote-machine/build/index.html" class="project-tile project-card btn-neoglass-premium" target="_blank">
+              <div class="project-title">&lt; Quote Machine /&gt;</div>
+            </a>
+            <p class="neon-arrow">◦ A dynamic quote generator that retrieves and displays random quotes, focusing on API usage, state updates, and clean UI presentation.</p>
+          </section>
+
+          <section id="Markdown-Previewer">
+            <h3>Markdown Previewer</h3> 
+            <a href="../projects/markdown-previewer/build/index.html" class="project-tile project-card btn-neoglass-premium" target="_blank">
+              <div class="project-title">&lt; Markdown Previewer /&gt;</div>
+            </a>
+            <p class="neon-arrow">◦ A live Markdown previewer that converts user input into formatted output in real time, highlighting text parsing and reactive UI updates.</p>
+          </section>
+
+        </div>
+      
+      <!-- Widgets Section -->
+      <section id="widgets">
+        <h2><u>More projects:</u> 
+           <span class="unique-text"> Widgets / Games </span>
+        </h2>
+        <br />
+
+          <!-- Widgets Section Toggle -->
+        <input type="checkbox" id="toggleWidgets">
+        <label for="toggleWidgets" class="toggle-btn btn-reflect-soft">View Widgets</label>
+
+        <div id="hideWidgets" class="hidden-section">
+            
+          <div id="quote-widget-mount" class="project-title"></div>
+
+            <div class="project-grid">
+            <!-- Widget projects -->
+            <section id="quote-widget">
+            <h3>My Widget</h3>
+            <div class="project-tile project-card btn-neoglass-premium" target="_blank">
+              <div>&lt; A smart widget demo /&gt;</div>
+            </div>
+            <p class="neon-arrow">◦ Designed to demonstrate component positioning, smooth UI behavior, and reusable JavaScript logic.</p>
+           </section>
+
+           <section id="quote-widget">
+             <h3>My Widget</h3>
+             <a href="quote-widget/index.html" class="project-tile project-card btn-neoglass-premium" target="_blank">
+             <div class="project-title">&lt; Quote Of The Day /&gt;<p>&lt; Click Me /&gt;</p></div>
+             </a>
+             <p class="neon-arrow">◦ An interactive quote widget featuring dynamic content updates, animated UI elements, and a modern, futuristic design aesthetic.</p>
+           </section>
+
+           <!--Tic Tac Toe Game & Widget-->
+           <section id="my-widget">
+            <h3>Tic Tac Toe Game</h3>
+            <a href="tic-tac-toe/index.html" class="project-tile project-card btn-neoglass-premium" target="_blank">
+             <div class="project-title">&lt; Tic Tac Toe /&gt;
+              <p>&lt; Click Me /&gt;</p>
+             </div>
+            </a>
+            <p class="neon-arrow">◦ An embeddable Tic Tac Toe game widget demonstrating game logic, state management, and modular JavaScript architecture.</p>
+           </section>
+
+           <section id="my-widget">
+            <h3>Tic Tac Toe Widget</h3>
+            <a href="app-tic-tac-toe/App.html" class="project-tile project-card btn-neoglass-premium" target="_blank">
+             <div class="project-title">&lt; Tic Tac Toe /&gt;<p>&lt; Click Me /&gt;</p></div>
+            </a>
+           <p class="neon-arrow">◦ An embeddable Tic Tac Toe game widget demonstrating game logic, state management, and modular JavaScript architecture.</p>
+           </section>
+           </div>
+
+           <div class="project-grid">
+           <!--Weather App Widget-->
+           <section id="my-widget">
+            <h3>My Weather Widget</h3>
+            <a class="project-tile widget-card" target="_blank">
+              
+              <div id="weather-widget"></div>
+            </a>
+            <p class="neon-arrow">◦ A fully functional weather widget that fetches and displays real-time weather data with a clean, responsive UI. Built to demonstrate API integration, dynamic DOM updates, and performance-focused JavaScript.</p>
+           </section>
+
+             <!--Radio Widget-->
+             <section id="radio-widget"> 
+               <h3>Live Radio Streaming</h3>
+                <div id="neon-radio-widget" class="widget-tile widget-card radio-widget"></div>
+                <p class="neon-arrow">◦ A live radio streaming widget showcasing real-time audio playback, custom UI controls, and interactive JavaScript functionality.</p>
+              </section>
+
+           <!--Mount Widgets-->
+           <script src="../radio.js"></script>
+           <script src="../embed-widget.js"></script>
+           <script src="../projects/weather-widget.js"></script>
+
+          </div>
+      
+          <script>
+            const toggleWidgets = document.getElementById('toggleWidgets');
+            const labelWidgets = document.querySelector('label[for="toggleWidgets"]');
+            const widgetsSection = document.getElementById('hideWidgets');
+
+            widgetsSection.style.display = "none";
+
+            toggleWidgets.addEventListener('change', () => {
+              labelWidgets.textContent = toggleWidgets.checked
+              ? "View Less Widgets"
+              : "View Widgets";
+
+            widgetsSection.style.display = toggleWidgets.checked ? "block" : "none";
+            });
+            
+          </script>
+
+          <script>
+            // Dark / Light Mode
+           document.querySelectorAll("#themeToggle").forEach(btn => {
+             btn.addEventListener("click", () => {
+               document.body.classList.toggle("dark");
+               const isDark = document.body.classList.contains("dark");
+
+           // update all theme buttons
+              document.querySelectorAll("#themeToggle").forEach(b => {
+                b.textContent = isDark ? "☀️" : "🌙";
+              });
+            });
+          });
+          </script>
+
+        </div>
+
+      </section>
+      
+      <script>
+        /* =========================================================
+           UNIVERSAL MULTI-SLIDE CAROUSEL SYSTEM
+           ========================================================= */
+        function createCarousel(slideshowId, visibleSlides = 2, autoSpeed = 3000) {
+        
+            const container = document.getElementById(slideshowId);
+            const wrapper = container.querySelector(".slides-wrapper");
+            const slides = container.querySelectorAll(".slide");
+            const prevBtn = container.querySelector(".prev");
+            const nextBtn = container.querySelector(".next");
+        
+            let index = 0;
+            const totalSlides = slides.length;
+        
+            /* Set each slide width based on how many should be visible */
+            slides.forEach(slide => {
+                slide.style.minWidth = (100 / visibleSlides) + "%";
+            });
+        
+            function updateSlidePosition() {
+                wrapper.style.transform = `translateX(-${(100 / visibleSlides) * index}%)`;
+            }
+        
+            function nextSlide() {
+                index++;
+                if (index > totalSlides - visibleSlides) {
+                    index = 0; // loop
+                }
+                updateSlidePosition();
+            }
+        
+            function prevSlide() {
+                index--;
+                if (index < 0) {
+                    index = totalSlides - visibleSlides;
+                }
+                updateSlidePosition();
+            }
+        
+            // Auto rotation
+            let timer = setInterval(nextSlide, autoSpeed);
+        
+            function resetTimer() {
+                clearInterval(timer);
+                timer = setInterval(nextSlide, autoSpeed);
+            }
+        
+            // Button controls
+            nextBtn.addEventListener("click", () => {
+                nextSlide();
+                resetTimer();
+            });
+        
+            prevBtn.addEventListener("click", () => {
+                prevSlide();
+                resetTimer();
+            });
+        
+            updateSlidePosition();
+        }
+        
+        /* =========================================================
+           INITIALIZE SLIDESHOWS
+           ========================================================= */
+        document.addEventListener("DOMContentLoaded", () => {
+        
+            // PROJECT SLIDESHOW — Show 2 items at a time
+            createCarousel("projects-slideshow", 3, 2500);
+        });
+        
+        /* =========================================================
+           MASTER PROJECT TOGGLE
+           ========================================================= */
+        const toggleAll = document.getElementById("toggleAll");
+        const labelAll = document.querySelector('label[for="toggleAll"]');
+        const allProjects = document.getElementById("all-projects-wrapper");
+        
+        toggleAll.addEventListener("change", () => {
+            labelAll.textContent = toggleAll.checked ? "Hide My Projects" : "View My Projects";
+            allProjects.style.display = toggleAll.checked ? "block" : "none";
+        });
+        </script>
+                
+    </main>
+
+    <footer>
+     <p> &copy; 2025 All rights reserved.</p>
+    </footer>
+
+  </body>
+</html>

@@ -1,0 +1,254 @@
+/* ----------------------------------------------------
+   GLOBAL: Fullscreen background (main app)
+----------------------------------------------------- */
+body {
+  margin: 0;
+  padding: 0;
+  background: url("assets/theme1.jpg") center center / cover no-repeat fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background 1.2s ease-in-out;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* ----------------------------------------------------
+ GAME WRAPPER
+----------------------------------------------------- */
+#game-board {
+  min-height: 100vh;
+}
+
+#game-container.hidden {
+  display: none;
+}
+
+#game-container {
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+
+  width: 340px;
+  margin: 40px auto;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  color: #181313ef;
+  box-shadow: 0 0 20px rgba(0,0,0,0.45);
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+#game-container.minimized {
+  transform: scale(0.14);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ----------------------------------------------------
+ TITLES
+----------------------------------------------------- */
+.title {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+#theme-indicator {
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+/* ----------------------------------------------------
+ BOARD / CELLS
+----------------------------------------------------- */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.cell {
+  width: 90px;
+  height: 90px;
+  font-size: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255,255,255,0.25);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  overflow: hidden;
+}
+
+.cell:hover {
+  background: rgba(255,255,255,0.4);
+  transform: scale(1.05);
+}
+
+.x {
+  color: #ffd700;
+  text-shadow: 0 0 8px #ff8c00;
+}
+.o {
+  color: #00eaff;
+  text-shadow: 0 0 8px #0088ff;
+}
+
+.piece-img {
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ----------------------------------------------------
+ RESET BUTTON
+----------------------------------------------------- */
+#reset-btn {
+  margin-top: 16px;
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: white;
+  color: #000;
+  font-weight: bold;
+}
+
+/* ----------------------------------------------------
+ CONFETTI CANVAS
+----------------------------------------------------- */
+#confetti-canvas {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  border-radius:16px;
+}
+
+/* ----------------------------------------------------
+ POPUP
+----------------------------------------------------- */
+.popup {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.92);
+  background: linear-gradient(180deg, rgba(6,6,10,0.92), rgba(14,8,20,0.85));
+  border-radius: 14px;
+  padding: 18px;
+  width: min(360px, 86vw);
+  color: #fff;
+  box-shadow: 0 15px 60px rgba(0,0,0,0.6),
+              0 0 32px rgba(120,50,200,0.06) inset;
+  z-index: 1500;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 280ms cubic-bezier(.2,.9,.3,1),
+              opacity 220ms;
+}
+
+#game-container .popup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.92);
+  width: 90%;
+  max-width: 320px;
+  z-index: 2000;
+}
+
+.popup.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+
+.popup.hidden {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.92);
+  pointer-events: none;
+}
+
+.popup-btn {
+  margin-top: 12px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight:700;
+  background: linear-gradient(180deg,#ffd6ff,#ff8bfb);
+  color:#360032;
+  box-shadow: 0 8px 30px rgba(180,80,200,0.18);
+}
+
+#winner-piece-img {
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* ----------------------------------------------------
+ CLOSE BUTTON INSIDE WIDGET
+----------------------------------------------------- */
+.tablet-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.06);
+  color: #2b6cff;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  z-index: 100;
+}
+
+/* ----------------------------------------------------
+ DRAGGABLE LAUNCHER (bottom-right)
+----------------------------------------------------- */
+#launcher-icon {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background-image: url("assets/knight.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 20px;
+  cursor: grab;
+  z-index: 1600;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+}
+
+/* Hidden helper */
+.hidden {
+  display: none !important;
+}
+
+/* ----------------------------------------------------
+ RESPONSIVE
+----------------------------------------------------- */
+@media (max-width:420px){
+  #game-container { width: 94%; margin: 28px auto; padding: 14px; }
+  .cell { width: min(18vw, 72px); height: min(18vw,72px); }
+  .piece-img { width: 72%; height: 72%; }
+}

@@ -1,0 +1,193 @@
+/* ---------- fallback background and base ---------- */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #1e3c72, #09a1e7);
+  background-size: cover;
+  background-position: center;
+  transition: background 1.2s ease-in-out;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Game container (tablet) */
+#game-container {
+  width: 340px;
+  margin: 40px auto;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.082);
+  backdrop-filter: blur(4px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.103);
+  border-radius: 16px;
+  color: #f7f3f3;
+  box-shadow: 0 0 20px rgba(0,0,0,0.45);
+  position: relative; 
+}
+
+/* Title */
+.title {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+/* Theme indicator */
+#theme-indicator {
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+/* Board grid (cells present inside #board) */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  justify-items: center;
+}
+
+/* Cells */
+.cell {
+  width: 90px;
+  height: 90px;
+  font-size: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.185);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  overflow: hidden;
+  position: relative;
+}
+
+.cell:hover {
+  background: rgba(255,255,255,0.4);
+  transform: scale(1.05);
+}
+
+/* piece image inside cell */
+.piece-img {
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Optional helper classes for color glow */
+.x { color: #ffd700; text-shadow: 0 0 8px #ff8c00; }
+.o { color: #00eaff; text-shadow: 0 0 8px #0088ff; }
+
+/* Reset button */
+#reset-btn {
+  margin-top: 16px;
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: rgb(253, 253, 253);
+  font-weight: bold;
+}
+
+/* ---------- Popup (fantasy-styled) ---------- */
+.popup {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.92);
+  background: linear-gradient(180deg, rgba(6,6,10,0.92), rgba(14,8,20,0.85));
+  border-radius: 14px;
+  padding: 18px;
+  width: min(360px, 86vw);
+  max-width: 96%;
+  color: #fffdfd;
+  box-shadow: 0 15px 60px rgba(0,0,0,0.6), 0 0 32px rgba(120,50,200,0.06) inset;
+  z-index: 1500;
+  transition: transform 280ms cubic-bezier(.2,.9,.3,1), opacity 220ms;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.popup.show {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup.hidden {
+  transform: translate(-50%, -50%) scale(0.92);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* popup inner content */
+.popup-content { text-align:center; }
+#winner-text { font-weight:700; margin-top: 6px; font-size:18px; color:#f7f1ff; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
+
+/* popup action button */
+.popup-btn {
+  margin-top: 12px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight:700;
+  background: linear-gradient(180deg,#ffd6ff,#ff8bfb);
+  color:#360032;
+  box-shadow: 0 8px 30px rgba(180,80,200,0.18);
+}
+
+/* Winner piece image in popup */
+#winner-piece-img {
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* Tablet-close (button inside tablet) */
+.tablet-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(10, 101, 238, 0.24);
+  color: #4759ff;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  z-index: 100;
+}
+
+/* Confetti canvas */
+#confetti-canvas { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; border-radius:16px; }
+
+/* Minimize Circle (draggable launcher) */
+.minimize-circle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #4fe4f8; /* overridden by JS to use knight image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 22px;
+  cursor: grab;
+  z-index: 1600;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+}
+
+/* hidden helper */
+.hidden { display: none !important; }
+
+/* small responsive adjustments */
+@media (max-width:420px){
+  #game-container { width: 94%; margin: 28px auto; padding: 14px; }
+  .cell { width: min(18vw, 72px); height: min(18vw,72px); }
+  .piece-img { width: 72%; height: 72%; }
+}

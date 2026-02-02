@@ -1,0 +1,240 @@
+/* ---------- BASE ---------- */
+body {
+    margin: 0;
+    font-family: 'Orbitron', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #0a0a0a;
+    overflow: hidden;
+    color: #fff;
+    position: relative;
+}
+
+/* ---------- CONTAINER ---------- */
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 400px;
+    width: 90%;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+/* ---------- BACKGROUND ---------- */
+.background {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(270deg, #0ff, #f0f, #ff0, #0ff);
+    background-size: 800% 800%;
+    animation: gradientShift 60s ease-in-out infinite;
+    z-index: 0;
+    filter: blur(100px);
+    opacity: 0.25;
+}
+
+/* ---------- FLOATING PARTICLES ---------- */
+.particles {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(0,255,255,0.15) 1px, transparent 1px) repeat;
+    background-size: 50px 50px;
+    animation: moveParticles 120s linear infinite;
+    z-index: 0;
+}
+
+@keyframes moveParticles {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 1000px; }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ---------- TITLES ---------- */
+h1, h2 {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    animation: flicker 3s infinite;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    color: #00ffff;
+    margin-bottom: 30px;
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+h2:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #00ffff, 0 0 50px #00ffff;
+}
+
+/* ---------- NAV ---------- */
+nav {
+    margin-bottom: 30px;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #00ffff;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+}
+
+/* ---------- CARDS ---------- */
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.2);
+    margin: 40px auto;
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 70px rgba(255, 0, 255, 0.3);
+}
+
+/* ---------- FORMS ---------- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ---------- INPUTS ---------- */
+form input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    font-family: 'Orbitron', sans-serif;
+    color: #00ffff;
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    caret-color: #ff00ff;
+    position: relative;
+}
+
+/* Placeholder */
+form input::placeholder {
+    color: #80ffff;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+form input:focus::placeholder {
+    color: #ff80ff;
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+/* Focus glow */
+form input:focus {
+    box-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff inset;
+    background: rgba(0, 255, 255, 0.1);
+}
+
+/* Animated underline */
+form input::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background: #ff00ff;
+    transition: width 0.4s ease;
+}
+
+form input:focus::after {
+    width: 100%;
+}
+
+/* ---------- BUTTONS ---------- */
+form button, #loadProfile, #logout {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #00ffff, #ff00ff);
+    color: #000;
+    cursor: pointer;
+    margin-top: 15px;
+    box-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: pulse 2s infinite alternate, flicker 3s infinite;
+}
+
+/* Hover & active effects */
+form button:hover, #loadProfile:hover, #logout:hover {
+    background: linear-gradient(135deg, #ff00ff, #00ffff);
+    box-shadow: 0 0 40px #ff00ff, 0 0 60px #00ffff;
+    transform: scale(1.08) rotate(-1deg);
+    color: #fff;
+}
+
+form button:active, #loadProfile:active, #logout:active {
+    box-shadow: 0 0 60px #ff00ff, 0 0 80px #00ffff inset;
+    transform: scale(0.98);
+}
+
+/* ---------- PULSE & FLICKER ---------- */
+@keyframes pulse {
+    0% { box-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff; }
+    50% { box-shadow: 0 0 30px #00ffff, 0 0 60px #ff00ff; }
+    100% { box-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff; }
+}
+
+@keyframes flicker {
+    0%,19%,21%,23%,25%,54%,56%,100% {
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #ff00ff;
+    }
+    20%,24%,55% {
+        text-shadow: 0 0 2px #00ffff, 0 0 5px #00ffff, 0 0 10px #ff00ff;
+    }
+}
+
+/* ---------- MESSAGE ---------- */
+#message {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #ff0;
+    text-shadow: 0 0 5px #ff0, 0 0 10px #ff0;
+}

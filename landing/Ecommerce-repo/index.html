@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern E‑Commerce Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <h1 class="logo">My Modern Store</h1>
+        <p class="tag">Clean UI • Portfolio demo</p>
+      </div>
+
+      <div class="controls">
+        <input id="search" type="search" placeholder="Search products..." aria-label="Search products" />
+        <select id="category-filter" aria-label="Filter by category">
+          <option value="all">All categories</option>
+          <option value="audio">Audio</option>
+          <option value="lighting">Lighting</option>
+          <option value="accessories">Accessories</option>
+        </select>
+        <button id="cart-btn" class="cart-btn">Cart (<span id="cart-count">0</span>)</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section id="product-grid" class="product-grid" aria-live="polite"></section>
+    </div>
+  </main>
+
+  <aside id="cart" class="cart hidden" aria-hidden="true">
+    <div class="cart-head">
+      <h2>Your Cart</h2>
+      <button id="close-cart" aria-label="Close cart">✕</button>
+    </div>
+    <div id="cart-items"></div>
+    <p class="total">Total: <span id="cart-currency">R</span><span id="cart-total">0.00</span></p>
+    <button id="checkout-btn" class="checkout-btn">Checkout</button>
+    <button id="clear-cart" class="clear-btn">Clear Cart</button>
+  </aside>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

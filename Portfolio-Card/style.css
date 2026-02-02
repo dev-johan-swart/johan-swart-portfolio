@@ -1,0 +1,172 @@
+:root {
+  --dark-grey: #1b1b32;
+  --light-grey: #f1f1f1;
+  --neon: #00ffcc;
+  --card-bg: #1e1e1e;
+}
+
+/* -----------------------------------------
+   NAVBAR  (unchanged)
+----------------------------------------- */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10vh;
+  border-top: 1px solid rgb(8, 212, 248);
+  border-bottom: 1px solid rgb(6, 213, 250);
+  background-color: rgb(15, 49, 77);
+  font-weight: bold;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+#navbar a {
+  color: #e9e1f1;
+  text-decoration: none;
+}
+#navbar a:hover {
+  color: #dd78fc;
+}
+
+/* -----------------------------------------
+   MAIN LAYOUT — match project grid
+----------------------------------------- */
+
+.flex-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px 20px;
+  padding: 2rem;
+  margin-top: 8vh; /* avoids overlap under navbar */
+  margin-bottom: -5vh;
+  align-items: stretch;
+  background-image: linear-gradient(76deg, #1d3c5e 0%, #181719 100%);
+}
+
+/* -----------------------------------------
+   CARD STYLE — match project card theme
+----------------------------------------- */
+
+.card {
+  background-color: var(--card-bg);
+  border: 2px solid var(--neon);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--neon);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  overflow: hidden;
+  min-height: 150px; 
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #0ffcf0;
+}
+
+/* Card title */
+.card-title {
+  color: wheat;
+  border-bottom: 2px solid var(--neon);
+  width: fit-content;
+  margin: 0 auto 0.5rem auto;
+  padding-bottom: 0.3rem;
+  font-weight: bold;
+}
+
+/* Card main image */
+.card-img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+/* -----------------------------------------
+   TOGGLE SECTION (certificate viewer)
+----------------------------------------- */
+#toggle-container {
+  background: rgba(0, 255, 204, 0.08);
+  border: 1px solid var(--neon);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#toggle-container:hover {
+  box-shadow: 0 0 14px rgba(0, 255, 204, 0.35);
+  transform: scale(1.02);
+}
+
+#toggle-button {
+  padding: 10px 20px;
+  border: 2px solid var(--neon);
+  background: transparent;
+  color: var(--neon);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#toggle-button:hover {
+  background: var(--neon);
+  color: #1e1e1e;
+  transform: scale(1.05);
+}
+
+#toggle-container img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: contain;
+  margin-top: 1rem;
+  border-radius: 6px;
+}
+
+/* -----------------------------------------
+   RESPONSIVE
+----------------------------------------- */
+@media (min-width: 768px) {
+  .card {
+    max-width: 100%;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #111;
+  color: #eee;
+  margin-top: 2rem;
+}
+
+body.dark .flex-container {
+  background: #222;
+}
+
+body.dark .card {
+  background: #0b2f311e;
+}
+
+body.dark #toggle-button {
+  background: #22404254;
+}
+
+body.dark #toggle-container {
+  background: #011c204f;
+}
+
+body.dark #toggle-button:hover {
+  background: #54f8a6ee;
+}

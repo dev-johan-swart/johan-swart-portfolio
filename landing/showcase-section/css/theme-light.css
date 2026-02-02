@@ -1,0 +1,92 @@
+/* =============================
+        LIGHT THEME
+============================= */
+
+body.light-theme {
+  background: #fdfdfd;
+  color: #111;
+}
+
+/* NAV */
+.light-theme .nav {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid #ddd;
+}
+
+.light-theme .nav .logo {
+  color: #0078ff;
+}
+
+.light-theme .nav a,
+.light-theme .contact-btn {
+  color: #222;
+}
+
+.light-theme .nav a:hover,
+.light-theme .contact-btn:hover {
+  color: #0078ff;
+}
+
+/* HERO */
+.light-theme .hero-btn {
+  background: #0078ff;
+  color: #fff;
+}
+
+.light-theme .hero-btn:hover {
+  background: #006fe0;
+}
+
+/* PORTFOLIO FILTERS */
+.light-theme .portfolio-filters button {
+  background: #ededed;
+  color: #333;
+}
+
+.light-theme .portfolio-filters button:hover,
+.light-theme .portfolio-filters button.active {
+  background: #0078ff;
+  color: #fff;
+}
+
+/* OVERLAY */
+.light-theme .overlay {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* HEATMAP */
+.light-theme .heatmap-item {
+  background: #f4f4f4;
+  border: 1px solid #e3e3e3;
+}
+
+.light-theme .heatmap-item:hover {
+  background: #0078ff;
+  color: #fff;
+}
+
+/* CONTACT PANEL */
+.light-theme .contact-panel {
+  background: #ffffff;
+  border-left: 1px solid #e5e5e5;
+}
+
+.light-theme .contact-header h3 {
+  color: #0078ff;
+}
+
+.light-theme input,
+.light-theme textarea {
+  background: white;
+  border: 1px solid #ccc;
+  color: #111;
+}
+
+.light-theme button {
+  background: #0077ff94;
+  color: #fff;
+}
+
+.light-theme button:hover {
+  background: #a8bdd4;
+}

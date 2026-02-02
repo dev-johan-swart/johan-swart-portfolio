@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio App</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/theme-dark.css">   <!-- default -->
+  <link rel="stylesheet" href="css/theme-light.css">  <!-- optional -->
+  <link rel="stylesheet" href="css/components.css">
+
+</head>
+<body class="dark-theme">
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="nav">
+    <div class="logo">YourName.Dev</div>
+    <nav>
+      <a href="#bio">Bio</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#portfolio">Projects</a>
+      <a href="#bonus">Bonus</a>
+      <button id="contact-toggle" class="contact-btn">Contact</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="title">Front-End Developer</h1>
+        <p class="subtitle">I build user-friendly, interactive & efficient digital experiences.</p>
+        <button class="hero-btn" onclick="scrollToPortfolio()">View My Work</button>
+      </div>
+    </section>
+
+    <!-- ===== BIO SECTION ===== -->
+    <section class="bio-section" id="bio">
+      <h2>About Me</h2>
+      <p>
+        I’m a passionate front-end developer who enjoys creating clean, 
+        efficient interfaces with a focus on usability and modern UI design. 
+        I love building components, experimenting with animations, and turning 
+        ideas into real, functional experiences.
+      </p>
+      <p>
+        My work blends HTML, CSS, and JavaScript logic with a strong focus on 
+        smooth interactions, responsive layouts, and practical user-centered designs.
+      </p>
+    </section>
+
+    <!-- ===== MINI GALLERY ===== -->
+    <section class="gallery-section" id="gallery">
+      <h2>Photo Snippets</h2>
+      <div class="gallery-grid">
+        <img src="https://picsum.photos/350?random=12" alt="Gallery 1">
+        <img src="https://picsum.photos/350?random=13" alt="Gallery 2">
+        <img src="https://picsum.photos/350?random=14" alt="Gallery 3">
+        <img src="https://picsum.photos/350?random=15" alt="Gallery 4">
+      </div>
+    </section>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <section class="portfolio-section" id="portfolio">
+      <h2>My Portfolio</h2>
+
+      <div class="portfolio-filters">
+        <button data-filter="all" class="active">All</button>
+        <button data-filter="web">Web</button>
+        <button data-filter="app">App</button>
+        <button data-filter="design">Design</button>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <div class="portfolio-card web">
+          <img src="https://picsum.photos/400/300?random=1" alt="">
+          <div class="overlay">Web Project 1</div>
+        </div>
+
+        <div class="portfolio-card app">
+          <img src="https://picsum.photos/400/300?random=2" alt="">
+          <div class="overlay">App Project 2</div>
+        </div>
+
+        <div class="portfolio-card design">
+          <img src="https://picsum.photos/400/300?random=3" alt="">
+          <div class="overlay">Design Project 3</div>
+        </div>
+
+        <div class="portfolio-card web">
+          <img src="https://picsum.photos/400/300?random=4" alt="">
+          <div class="overlay">Web Project 4</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== BONUS: Skill Heatmap ===== -->
+    <section class="bonus-section" id="bonus">
+      <h2>Skill Heatmap</h2>
+      <p class="bonus-desc">A visual representation of my strongest areas.</p>
+      <div class="heatmap" id="heatmap"></div>
+    </section>
+
+  </main>
+
+  <!-- ===== CONTACT PANEL (unique!) ===== -->
+  <aside class="contact-panel" id="contact-panel">
+    <div class="contact-header">
+      <h3>Send a Message</h3>
+      <span id="close-contact">&times;</span>
+    </div>
+
+    <div class="contact-tabs">
+      <button class="tab active" data-tab="form">Message</button>
+      <button class="tab" data-tab="capsule">Message Capsule</button>
+    </div>
+
+    <!-- Standard Form -->
+    <form id="contact-form" class="contact-tab-content active">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+
+    <!-- Capsule Message -->
+    <div id="capsule" class="contact-tab-content">
+      <p>Drop a short note — it gets saved as an encrypted capsule preview.</p>
+      <textarea id="capsule-input" placeholder="Your short note..."></textarea>
+      <button id="save-capsule">Save Capsule</button>
+      <div id="capsule-output"></div>
+    </div>
+
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+
+/* Base side-menu */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 205px;
+    height: 100vh;
+    background-image: linear-gradient(136deg, #1d3c5e 0%, #181719 100%);
+    overflow: hidden;
+    transition: left 0.28s ease-in-out;
+    z-index: 900;
+    padding-bottom: 16px;
+  }
+  
+  /* Menu items */
+  .side-menu ul { list-style: none; padding: 1rem 0.6rem; margin: 0; }
+  .side-menu ul li { margin: 0.6rem 0; }
+  .side-menu ul li a,
+  .game-link {
+    color: #00ffcc;
+    text-decoration: none;
+    font-size: 0.98rem;
+    display: block;
+    border-radius: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background .15s ease;
+    border-bottom: 1px solid rgba(15, 252, 240, 0.4); /* subtle underline */
+    background: rgba(36, 88, 130, 0.6); 
+    border-left: 7px solid #25acc4;
+    padding: 6px 8px;
+    border-radius: 8px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .side-menu ul li a:hover { 
+    background: rgba(36, 88, 130, 0.8);
+    color: #dd78fc;
+    transform: translateX(3px); 
+  }
+
+  .small-note {
+    font-size: 0.8rem;
+    line-height: 1.3;
+    margin-top: 0.8rem;
+    color: #b6faf4;
+  }  
+  
+  /* Panels (hidden by default) */
+  .side-menu .menu-panel {
+    display: none;
+    padding: 1rem 0.6rem;
+    background: rgba(36, 88, 130, 0.8);
+    color: #00ffcc;
+    text-align: center;
+  }
+  
+  /* Panel visible */
+  .side-menu .menu-panel.active-panel { display: block; }
+  
+  /* Buttons in menu */
+  button:hover {   background: linear-gradient(90deg, #0ffcf0, #25acc4); color: #1e1e1e; }
+  
+  /* show/hide */
+  .side-menu.open { left: 0; }
+  
+  /* small helpers */
+  .hidden-panel { display: none; }
+  
+  /* dark mode support */
+  body.dark .side-menu { background: #111; }
+  
+  /* responsive tweaks for small screens */
+  @media (max-width: 768px) {
+    .side-menu { width: 180px; left: -180px; }
+  }
+  

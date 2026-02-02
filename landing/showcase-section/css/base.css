@@ -1,0 +1,218 @@
+/* =============================
+   RESET & GLOBAL BASE STYLES
+============================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* =============================
+             NAVBAR
+============================= */
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.nav .logo {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.nav a,
+.contact-btn {
+  margin-left: 20px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  background: none;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* =============================
+               HERO
+============================= */
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  padding-top: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-content .title {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero-content .subtitle {
+  font-size: 1.2rem;
+  margin: 1rem 0 2rem;
+}
+
+.hero-btn {
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+/* =============================
+              SECTIONS
+============================= */
+
+section {
+  padding: 110px 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* =============================
+            GALLERY
+============================= */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.2rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  height: 200px;
+}
+
+/* =============================
+         PORTFOLIO GRID
+============================= */
+
+.portfolio-filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.portfolio-filters button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: 0.3s;
+  border: none;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.portfolio-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  transform: scale(0.95);
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.portfolio-card.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.portfolio-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.portfolio-card:hover .overlay {
+  opacity: 1;
+}
+
+/* =============================
+            BONUS: HEATMAP
+============================= */
+
+.heatmap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.heatmap-item {
+  padding: 1.2rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+/* =============================
+         RESPONSIVE
+============================= */
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav a,
+  .contact-btn {
+    margin: 10px 0 0;
+  }
+
+  .hero .title {
+    font-size: 2.4rem;
+  }
+}

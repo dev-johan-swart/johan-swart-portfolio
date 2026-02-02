@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Profile</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="card">
+  <h2>Register Account</h2>
+  <form>
+    <button id="loadProfile">Load Profile</button>
+    <div id="profile"></div>
+    <button id="logout">Logout</button>
+  </form>
+</div>
+<script>
+const profileDiv = document.getElementById('profile');
+document.getElementById('loadProfile').addEventListener('click', async () => {
+  const res = await fetch('http://localhost:4000/profile', { credentials: 'include' });
+  const data = await res.json();
+  profileDiv.innerText = JSON.stringify(data);
+});
+
+document.getElementById('logout').addEventListener('click', async () => {
+  await fetch('http://localhost:4000/logout', { method: 'POST', credentials: 'include' });
+  alert('Logged out');
+  profileDiv.innerText = '';
+});
+</script>
+</body>
+</html>

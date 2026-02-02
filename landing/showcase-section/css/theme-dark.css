@@ -1,0 +1,93 @@
+/* =============================
+        DARK THEME
+============================= */
+
+body.dark-theme {
+  background: #0d0f14;
+  color: #e9e9e9;
+}
+
+/* NAV */
+.dark-theme .nav {
+  background: rgba(20, 22, 28, 0.9);
+  border-bottom: 1px solid #222;
+}
+
+.dark-theme .nav .logo {
+  color: #00eaff;
+}
+
+.dark-theme .nav a,
+.dark-theme .contact-btn {
+  color: #ddd;
+}
+
+.dark-theme .nav a:hover,
+.dark-theme .contact-btn:hover {
+  color: #00eaff;
+}
+
+/* HERO */
+.dark-theme .hero-btn {
+  background: #00eaff;
+  color: #0d0f14;
+}
+
+.dark-theme .hero-btn:hover {
+  background: #0acbe0;
+}
+
+/* PORTFOLIO FILTERS */
+.dark-theme .portfolio-filters button {
+  background: #1b1f29;
+  color: #eee;
+}
+
+.dark-theme .portfolio-filters button:hover,
+.dark-theme .portfolio-filters button.active {
+  background: #00eaff;
+  color: #0d0f14;
+}
+
+/* OVERLAY */
+.dark-theme .overlay {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* HEATMAP */
+.dark-theme .heatmap-item {
+  background: #1a1f28;
+  border: 1px solid #272d38;
+}
+
+.dark-theme .heatmap-item:hover {
+  background: #00eaff;
+  color: #0d0f14;
+}
+
+/* CONTACT PANEL */
+.dark-theme .contact-panel {
+  background: #12151c;
+  border-left: 1px solid #222;
+}
+
+.dark-theme .contact-header h3 {
+  color: #00eaff;
+}
+
+.dark-theme input,
+.dark-theme textarea {
+  background: #1c1f27;
+  color: #eee;
+  border: 1px solid #333;
+}
+
+.dark-theme button {
+  background: #4a5202;
+  color: #0d0f14;
+}
+
+.dark-theme button:hover {
+  background: #f6f7a6;
+
+}

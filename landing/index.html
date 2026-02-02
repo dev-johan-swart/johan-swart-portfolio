@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Dev Studio - Modern Web Solutions</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #6366f1; --primary-dark: #4f46e5; --secondary: #ec4899;
+            --dark: #0f172a; --light: #f8fafc; --gray: #64748b;
+        }
+        
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--dark); overflow-x: hidden; }
+        
+        nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.1); z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .contact-btn { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 0.7rem 1.5rem; border-radius: 50px; border: none; cursor: pointer; font-weight: 600; transition: transform 0.3s; }
+        .contact-btn:hover { transform: translateY(-2px); }
+        
+        .hero { min-height: 100vh; display: flex; align-items: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding-top: 80px; }
+        .hero-container { max-width: 1200px; margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .hero-content h1 { font-size: 3.5rem; color: white; margin-bottom: 1.5rem; line-height: 1.2; }
+        .hero-content p { font-size: 1.2rem; color: rgba(255,255,255,0.9); margin-bottom: 2rem; }
+        .hero-buttons { display: flex; gap: 1rem; }
+        .btn-primary, .btn-secondary { padding: 1rem 2rem; border-radius: 50px; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 1rem; }
+        .btn-primary { background: white; color: var(--primary); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255,255,255,0.3); }
+        .btn-secondary { background: transparent; color: white; border: 2px solid white; }
+        .btn-secondary:hover { background: white; color: var(--primary); }
+        .hero-image img { width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        
+        .about { padding: 6rem 2rem; background: var(--light); }
+        .about-container { max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 1rem; }
+        .section-subtitle { text-align: center; color: var(--gray); font-size: 1.1rem; margin-bottom: 4rem; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .feature-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: all 0.3s; }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+        .feature-icon { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1rem; }
+        .feature-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .feature-card p { color: var(--gray); }
+        
+        .pricing { padding: 6rem 2rem; background: white; }
+        .pricing-container { max-width: 1200px; margin: 0 auto; }
+        .pricing-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .pricing-card { background: white; border: 2px solid #e2e8f0; border-radius: 20px; padding: 2.5rem; transition: all 0.3s; position: relative; }
+        .pricing-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
+        .pricing-card.featured { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; transform: scale(1.05); }
+        .pricing-badge { position: absolute; top: -15px; right: 20px; background: var(--secondary); color: white; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; }
+        .pricing-card h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+        .price { font-size: 3rem; font-weight: bold; margin-bottom: 0.5rem; color: var(--primary); }
+        .pricing-card.featured .price, .pricing-card.featured h3, .pricing-card.featured li { color: white; }
+        .price-period { color: var(--gray); font-size: 1rem; display: block; margin-bottom: 2rem; }
+        .pricing-card.featured .price-period { color: rgba(255,255,255,0.8); }
+        .pricing-features { list-style: none; margin-bottom: 2rem; }
+        .pricing-features li { padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; }
+        .pricing-card.featured .pricing-features li { border-bottom-color: rgba(255,255,255,0.2); }
+        .pricing-features li::before { content: '✓'; color: var(--primary); font-weight: bold; margin-right: 0.5rem; }
+        .pricing-card.featured .pricing-features li::before { color: white; }
+        .pricing-btn { width: 100%; padding: 1rem; border-radius: 50px; background: var(--primary); color: white; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+        .pricing-btn:hover { background: var(--primary-dark); }
+        .pricing-card.featured .pricing-btn { background: white; color: var(--primary); }
+        
+        .gallery { padding: 6rem 2rem; background: var(--light); }
+        .gallery-container { max-width: 1200px; margin: 0 auto; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .gallery-item { position: relative; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); cursor: pointer; }
+        .gallery-item img { width: 100%; height: 300px; object-fit: cover; transition: transform 0.5s; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 2rem; transform: translateY(100%); transition: transform 0.3s; }
+        .gallery-item:hover .gallery-overlay { transform: translateY(0); }
+        .gallery-overlay h3 { color: white; font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .gallery-overlay p { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+        
+        footer { background: var(--dark); color: white; padding: 4rem 2rem 2rem; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 2rem; }
+        .footer-section h3 { font-size: 1.3rem; margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .footer-section p, .footer-section a { color: rgba(255,255,255,0.7); text-decoration: none; display: block; margin-bottom: 0.5rem; }
+        .footer-section a:hover { color: white; }
+        .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
+        .social-links a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+        .social-links a:hover { background: var(--primary); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+        
+        .contact-panel { position: fixed; right: -100%; top: 0; width: 500px; max-width: 100%; height: 100vh; background: white; box-shadow: -5px 0 30px rgba(0,0,0,0.3); z-index: 2000; transition: right 0.4s; overflow-y: auto; }
+        .contact-panel.active { right: 0; }
+        .contact-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1999; opacity: 0; visibility: hidden; transition: all 0.3s; }
+        .contact-overlay.active { opacity: 1; visibility: visible; }
+        .contact-header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .contact-header h2 { font-size: 1.8rem; }
+        .close-btn { background: none; border: none; color: white; font-size: 2rem; cursor: pointer; transition: transform 0.3s; }
+        .close-btn:hover { transform: rotate(90deg); }
+        .contact-form { padding: 2rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: var(--dark); font-weight: 600; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 1rem; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem; transition: border-color 0.3s; font-family: inherit; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--primary); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .submit-btn { width: 100%; padding: 1rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(99,102,241,0.4); }
+        .contact-info { padding: 2rem; background: var(--light); }
+        .contact-info h3 { margin-bottom: 1rem; }
+        .contact-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; color: var(--gray); }
+        .contact-item-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-container { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .pricing-cards { grid-template-columns: 1fr; }
+            .pricing-card.featured { transform: scale(1); }
+            .contact-panel { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">JS Dev Studio</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#gallery">Portfolio</a></li>
+            </ul>
+            <button class="contact-btn" onclick="openContact()">Get in Touch</button>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Transform Your Digital Presence</h1>
+                <p>We craft stunning, high-performance web solutions that drive results. From modern websites to complex web applications.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="openContact()">Start Your Project</button>
+                    <button class="btn-secondary" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Learn More</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Web Development">
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-container">
+            <h2 class="section-title">Why Choose JS Dev Studio?</h2>
+            <p class="section-subtitle">We deliver excellence in every line of code</p>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Optimized performance with cutting-edge technologies. Your users will experience blazing-fast load times.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Fully Responsive</h3>
+                    <p>Perfect experience on all devices. From mobile phones to large desktop screens, your site will look stunning.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Modern Design</h3>
+                    <p>Beautiful, contemporary interfaces that captivate users. We stay ahead of design trends to keep your brand fresh.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Custom Solutions</h3>
+                    <p>Tailored to your unique business needs. Every project is crafted specifically for you.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure & Reliable</h3>
+                    <p>Enterprise-grade security standards. Your data and your customers' data are always protected.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>24/7 Support</h3>
+                    <p>Always here when you need us. Ongoing support and maintenance to keep your digital presence running smoothly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="pricing-container">
+            <h2 class="section-title">Flexible Pricing Plans</h2>
+            <p class="section-subtitle">Choose the perfect plan for your business needs</p>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">R999</div>
+                    <span class="price-period">One-time payment</span>
+                    <ul class="pricing-features">
+                        <li>5-Page Website</li>
+                        <li>Responsive Design</li>
+                        <li>Contact Form</li>
+                        <li>SEO Optimization</li>
+                        <li>30 Days Support</li>
+                    </ul>
+                    <button class="pricing-btn" onclick="openContact()">Get Started</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <h3>Professional</h3>
+                    <div class="price">R2,499</div>
+                    <span class="price-period">One-time payment</span>
+                    <ul class="pricing-features">
+                        <li>10-Page Website</li>
+                        <li>Custom Design</li>
+                        <li>E-commerce Ready</li>
+                        <li>Advanced SEO</li>
+                        <li>90 Days Support</li>
+                        <li>Analytics Integration</li>
+                    </ul>
+                    <button class="pricing-btn" onclick="openContact()">Get Started</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">R4,999+</div>
+                    <span class="price-period">Custom quote</span>
+                    <ul class="pricing-features">
+                        <li>Unlimited Pages</li>
+                        <li>Full Stack Development</li>
+                        <li>Custom Features</li>
+                        <li>Database Integration</li>
+                        <li>1 Year Support</li>
+                        <li>Dedicated Developer</li>
+                    </ul>
+                    <button class="pricing-btn" onclick="openContact()">Contact Us</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <div class="gallery-container">
+            <h2 class="section-title">Our Recent Work</h2>
+            <p class="section-subtitle">Projects that showcase our expertise</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop" alt="E-commerce Platform">
+                    <div class="gallery-overlay">
+                        <h3>E-commerce Platform</h3>
+                        <p>Modern online store with seamless checkout</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop" alt="Business Dashboard">
+                    <div class="gallery-overlay">
+                        <h3>Business Dashboard</h3>
+                        <p>Real-time analytics and data visualization</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop" alt="Tech Startup">
+                    <div class="gallery-overlay">
+                        <h3>Tech Startup Site</h3>
+                        <p>Bold design for innovative company</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>JS Dev Studio</h3>
+                <p>Creating exceptional digital experiences that help businesses thrive in the modern web.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Twitter">𝕏</a>
+                    <a href="#" aria-label="LinkedIn">in</a>
+                    <a href="#" aria-label="GitHub">gh</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="#">Web Development</a>
+                <a href="#">E-commerce Solutions</a>
+                <a href="#">Custom Applications</a>
+                <a href="#">UI/UX Design</a>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#about">About Us</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#gallery">Portfolio</a>
+                <a href="#" onclick="openContact()">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>📧 hello@jsdevstudio.com</p>
+                <p>📱 +1 (555) 123-4567</p>
+                <p>📍 123 Tech Street, Silicon Valley</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 JS Dev Studio. All rights reserved. Built with passion and precision.</p>
+        </div>
+    </footer>
+
+    <div class="contact-overlay" onclick="closeContact()"></div>
+    <div class="contact-panel">
+        <div class="contact-header">
+            <h2>Let's Work Together</h2>
+            <button class="close-btn" onclick="closeContact()">&times;</button>
+        </div>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="service">Service Needed</label>
+                <select id="service" name="service">
+                    <option>Website Development</option>
+                    <option>E-commerce Solution</option>
+                    <option>Custom Application</option>
+                    <option>Website Redesign</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Project Details *</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+        <div class="contact-info">
+            <h3>Get In Touch</h3>
+            <div class="contact-item">
+                <div class="contact-item-icon">📧</div>
+                <div><strong>Email</strong><br>hello@jsdevstudio.com</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-icon">📱</div>
+                <div><strong>Phone</strong><br>+1 (555) 123-4567</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-icon">📍</div>
+                <div><strong>Location</strong><br>123 Tech Street, Silicon Valley</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openContact() {
+            document.querySelector('.contact-panel').classList.add('active');
+            document.querySelector('.contact-overlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContact() {
+            document.querySelector('.contact-panel').classList.remove('active');
+            document.querySelector('.contact-overlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            const subject = `New Contact from ${data.name}`;
+            const body = `Name: ${data.name}%0D%0AEmail: ${data.email}%0D%0APhone: ${data.phone}%0D%0AService: ${data.service}%0D%0A%0D%0AMessage:%0D%0A${data.message}`;
+            
+            window.location.href = `mailto:hello@jsdevstudio.com?subject=${subject}&body=${body}`;
+            
+            alert('Thank you! Your message has been prepared. Your email client will open shortly.');
+            closeContact();
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>

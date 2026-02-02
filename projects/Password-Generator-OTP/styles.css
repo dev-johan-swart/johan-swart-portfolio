@@ -1,0 +1,90 @@
+/* ====== MAIN LAYOUT ====== */
+.otp-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background: linear-gradient(135deg, #0f0f1e, #1e063a);
+    padding: 20px;
+  }
+  
+  .otp-card {
+    width: 340px;
+    padding: 24px;
+    border-radius: 16px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 6px 26px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 0.9s ease;
+  }
+  
+  /* ===== TITLE ===== */
+  .otp-title {
+    color: #ffffff;
+    font-size: 26px;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  /* ===== OTP NUMBER DISPLAY ===== */
+  .otp-value {
+    font-size: 42px;
+    margin: 12px 0;
+    color: #ffd700;
+    text-shadow: 0 0 12px rgba(255, 200, 0, 0.6);
+    min-height: 48px;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    opacity: 0.6;
+  }
+  
+  .otp-value.active {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+  
+  /* ===== TIMER TEXT ===== */
+  .otp-timer {
+    color: #ccccff;
+    font-size: 16px;
+    margin-bottom: 20px;
+    min-height: 20px;
+  }
+  
+  /* ===== BUTTON ===== */
+  .otp-button {
+    padding: 12px 20px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #7d2cff, #d84bff);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.25s ease, box-shadow 0.25s;
+  }
+  
+  .otp-button:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(180, 80, 255, 0.45);
+  }
+  
+  .otp-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  /* ===== FADE-IN ANIMATION ===== */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
