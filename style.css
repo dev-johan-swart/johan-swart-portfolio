@@ -21,6 +21,18 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
+/* GLOBAL MOBILE SAFETY */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 /* Header fallback*/
 header {
   display: flex;
@@ -204,6 +216,15 @@ button:hover { background: #ffcc00; color: #1e1e1e; }
   }
 }
 
+@media (max-width: 768px) {
+  nav,
+  .navbar {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 .menu-btn,
 .theme-btn {
   background: none;
@@ -275,7 +296,10 @@ button:hover { background: #ffcc00; color: #1e1e1e; }
   right: 0;
   top: 0;
   height: 100vh;
-  width: 380px;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 1rem;
   background: var(--card, #141420);
   z-index: 10000;
   transform: translateX(100%);
@@ -340,6 +364,7 @@ form {padding:2rem}
 label {display:block;margin-bottom:.5rem;color:var(--neon-blue)}
 input,textarea,select {
   width:100%;
+  max-width: 100%;
   margin-bottom:1.2rem;
   padding:1rem;
   background:rgba(0,243,255,.05);
@@ -351,6 +376,8 @@ input:focus,textarea:focus,select:focus {
   outline:none;
   border-color:var(--neon-blue);
   box-shadow:0 0 20px rgba(0,243,255,.3);
+  width: 100%;
+  max-width: 100%;
 }
 
 .button-submit {

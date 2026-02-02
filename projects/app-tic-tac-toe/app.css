@@ -11,7 +11,8 @@ body {
 
 /* Game container (tablet) */
 #game-container {
-  width: 340px;
+  width: 100%;
+  max-width: 340px;
   margin: 40px auto;
   text-align: center;
   padding: 20px;
@@ -22,6 +23,10 @@ body {
   color: #f7f3f3;
   box-shadow: 0 0 20px rgba(0,0,0,0.45);
   position: relative; 
+}
+
+.tic-tac-toe * {
+  max-width: 100%;
 }
 
 /* Title */
