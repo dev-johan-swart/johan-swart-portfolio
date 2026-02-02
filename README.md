@@ -3,7 +3,7 @@
 A modern, performance-focused frontend portfolio showcasing interactive UI projects, clean design systems, and practical JavaScript applications. Built to demonstrate real-world frontend skills, usability, and attention to detail.
 
 ## 🚀 Live Demo
-🔗 https://johan-swart-portfolio.netlify.app/
+🔗 (Deploying on Vercel — link coming shortly)
 
 ---
 
