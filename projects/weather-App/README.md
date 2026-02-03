@@ -39,5 +39,5 @@ This project demonstrates clean UI design, asynchronous JavaScript, environment 
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/your-username/weather-app.git
+git clone https://github.com/dev-johan-swart/weather-app.git
 cd weather-app
