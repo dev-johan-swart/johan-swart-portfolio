@@ -33,6 +33,7 @@ A modern, performance-focused frontend portfolio showcasing interactive UI proje
 - Weather application
 - UI widgets and micro-interactions
 - JavaScript games (Tic Tac Toe, Memory Match, Reaction Test)
+- Language Translator app connected to certificate validation workflows
 - freeCodeCamp projects and challenges
 
 Each project focuses on **clarity, interaction, and maintainable frontend logic**.
@@ -67,8 +68,8 @@ It evolves continuously as I refine existing projects and build new ones.
 
 ## 📬 Contact
 - **GitHub:** https://github.com/dev-johan-swart
-- **Email:** johan.swart.dev@gmail.com
 - **LinkedIn:** https://www.linkedin.com/in/dev-johan-swart/
+- **Email:** johan.swart.dev@gmail.com
 
 ---
 

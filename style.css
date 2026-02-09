@@ -185,43 +185,47 @@ button:hover { background: #ffcc00; color: #1e1e1e; }
   gap: 40px;
 }
 
-#navbar a {
-  color: #e9e1f1;
-  text-decoration: none;
-}
-
 #navbar a:hover {
   color: #0ffcf0;
 }
 
 /* Reset default button/link look */
 #navbar a {
+  color: #e9e1f1;
+  text-decoration: none;
   display: inline-block;
   width: auto;
   font-size: 1rem;
   padding: 10px 12px;
 }
 
-/* Small screen adjustments */
+/* Tablet + mobile navbar */
 @media (max-width: 768px) {
   #navbar {
+    display: flex;
     gap: 10px;
     overflow-x: auto;
     white-space: nowrap;
     padding: 0 12px;
+    justify-content: flex-start; /* IMPORTANT */
   }
 
   #navbar::-webkit-scrollbar {
     display: none;
   }
+
+  #navbar a {
+    font-size: 0.95rem;
+    padding: 8px 10px;
+    flex-shrink: 0; /* CRITICAL */
+  }
 }
 
-@media (max-width: 768px) {
-  nav,
-  .navbar {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
+/* Small phones */
+@media (max-width: 480px) {
+  #navbar a {
+    font-size: 0.85rem;
+    padding: 6px 8px;
   }
 }
 
@@ -642,6 +646,14 @@ html {
   flex-direction: column; 
   gap: 30px;
   align-items: center;
+}
+
+.card-base.bio-col {
+  text-align: center;
+}
+
+.card-base.bio-col h2 {
+  text-align: left;
 }
 
 .photo-card {
