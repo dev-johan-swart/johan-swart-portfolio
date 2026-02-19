@@ -68,6 +68,20 @@ if (studyButton) {
   });
 }
 
+const studyButton2 = document.getElementById("studyButton2");
+if (studyButton2) {
+  studyButton2.addEventListener("click", () => {
+    window.open("https://www.typescriptlang.org/docs", "_blank");
+  });
+}
+
+const studyButton3 = document.getElementById("studyButton3");
+if (studyButton3) {
+  studyButton3.addEventListener("click", () => {
+    window.open("https://jestjs.io/docs/getting-started", "_blank");
+  });
+}
+
 // Dark / Light Mode
 document.querySelectorAll("#themeToggle, #themeToggleMenu").forEach(btn => {
   btn.addEventListener("click", () => {

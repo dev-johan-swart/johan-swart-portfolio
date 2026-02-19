@@ -41,7 +41,7 @@
         <li><a href="./Portfolio-Card/index.html" class="external-link">⁝ 📂 Certificates</a></li>
         <li><a href="#" data-menu="github">⁝ 🔗 Letter App Links</a></li>
         <li><a href="./projects/projects.html" class="external-link">⁝ 🚀 More Projects</a></li>
-        <li><a href="#" data-menu="extra">⁝ 💣 Extra</a></li>
+        <li><a href="#" data-menu="extra">⁝ 💣 Bonus</a></li>
         <li><a href="#" data-menu="help">⁝ ❓ Help</a></li>
         <li><a href="#" data-menu="settings">⁝ ⚙️ Settings</a></li>
       </ul>
@@ -86,6 +86,8 @@
       <h2>Extra</h2>
       <p>Additional Study Material.</p>
       <button id="studyButton" class="game-link">React Material</button>
+      <button id="studyButton2" class="game-link">TypeScript Material</button>
+      <button id="studyButton3" class="game-link">Automated Testing</button>
      </div>
 
      <div id="menuHelp" class="menu-panel hidden-panel">
@@ -144,8 +146,7 @@
           Open to junior frontend or frontend-focused roles, remote or hybrid, where
           clean UI, collaboration, and long-term product quality matter.
          </p>          
-         ✦✧
-        
+         ✦✧     
          </div>
       
          <!-- RIGHT COLUMN -->
@@ -170,6 +171,11 @@
             JavaScript (ES6+)
             <div class="skill-bar-mini"><div style="--final-width: 88%"></div></div>
           </li>
+
+          <li class="tooltip" data-tooltip="Strongly typed, scalable application development">
+            TypeScript
+            <div class="skill-bar-mini"><div style="--final-width: 72%"></div></div>
+          </li>          
         
           <li class="tooltip" data-tooltip="Component-based UI with hooks and state">
             React (Components & Hooks)
@@ -235,7 +241,26 @@
           Deployment & Hosting
           <div class="skill-bar-mini"><div style="--final-width: 80%"></div></div>
         </li>
-      </ul>      
+      </ul>
+
+      <h4>✦ Testing & Code Quality</h4>
+      <ul class="skills-list category">
+
+        <li class="tooltip" data-tooltip="Unit & component testing for reliability">
+          Vitest & Jest
+          <div class="skill-bar-mini"><div style="--final-width: 70%"></div></div>
+        </li>
+      
+        <li class="tooltip" data-tooltip="Type safety, refactoring, maintainable patterns">
+          Scalable Architecture
+          <div class="skill-bar-mini"><div style="--final-width: 80%"></div></div>
+        </li>
+      
+        <li class="tooltip" data-tooltip="Readable, structured, production-ready code">
+          Code Quality & Best Practices
+          <div class="skill-bar-mini"><div style="--final-width: 85%"></div></div>
+        </li>    
+      </ul>
 
         </div>        
        </div>
@@ -249,26 +274,29 @@
           <h2>📘 About This Portfolio</h2>
       
           <p>
-            This portfolio is a curated collection of projects I’ve designed, built,
-            and deployed independently. Each project focuses on clean structure,
-            thoughtful UI decisions, and practical JavaScript logic.
+            This portfolio represents a collection of projects I have architected,
+            developed, tested, and deployed independently. Each project emphasizes
+            clean structure, scalable component design, and thoughtful UI decisions.
           </p>
-      
+          
           <p>
-            My goal is to create interfaces that feel intuitive, responsive, and
-            purposeful — balancing visual polish with maintainable, readable code.
+            My approach combines strong frontend fundamentals with modern tooling —
+            including TypeScript for type safety and Vitest/Jest for reliable testing —
+            ensuring code that is both maintainable and production-ready.
           </p>
-      
+          
           <ul class="readme-points">
             <li>✔️ Accessibility-first HTML structure</li>
             <li>✔️ Responsive layouts using Flexbox & Grid</li>
-            <li>✔️ Component-based thinking (vanilla JS & React)</li>
-            <li>✔️ Deployed, real-world usable projects</li>
+            <li>✔️ Component-based architecture (React & TypeScript)</li>
+            <li>✔️ Basic Unit & component testing practices</li>
+            <li>✔️ Deployed, real-world usable applications</li>
           </ul>
-      
+          
           <p class="readme-note">
-            I’m actively seeking a frontend role where I can contribute to real
-            products, collaborate with others, and continue growing as a developer.
+            I am actively seeking a frontend role where I can contribute to meaningful
+            products, collaborate within a strong engineering culture, and continue
+            refining scalable frontend architecture and testing practices.
           </p>
         </div>
       </section>
@@ -375,24 +403,16 @@
 
           <section id="personal-landing">
             <h3 class="neon-arrow">Personal Landing Page Demo</h3>
-            <a href="../landing/index-2.html" class="project-tile project-card btn-neoglass-premium">
+            <a href="../landing/index-2.html" target="_blank" rel="noopener noreferrer" class="project-tile project-card btn-neoglass-premium">
               <span class="project-badge featured-project">Featured</span>
               <img src="../assets/Landing-1.png" alt="Landing page design preview" width="90" height="150" loading="lazy" class="project-card-img">
             </a>
             <p>◦ A modern personal landing page built with semantic HTML and CSS, focusing on clean layout structure, visual hierarchy, and responsive design principles </p>
           </section>
 
-          <section id="login-secure">
-            <h3 class="neon-arrow">Secure Login Demo</h3> 
-            <a href="../projects/login-glossy/client/index.html" class="project-tile project-card btn-neoglass-premium">
-              <img src="../assets/Login2.png" alt="Modern register login preview " width="90" height="150" loading="lazy" class="project-card-img">
-            </a>
-            <p>◦ A modern login interface featuring animated form inputs, responsive layout behavior, and a user-focused visual experience </p>
-          </section>
-
           <section id="login-featured">
             <h3 class="neon-arrow">Featuristic Login</h3> 
-            <a href="../projects/Login-with-auth/index.html" class="project-tile project-card btn-neoglass-premium">
+            <a href="../projects/Login-with-auth/index.html" target="_blank" rel="noopener noreferrer" class="project-tile project-card btn-neoglass-premium">
               <span class="project-badge">Featured</span>
               <img src="../assets/Login.png" alt="Futuristic login preview" width="90" height="150" loading="lazy" class="project-card-img">
             </a>
@@ -401,7 +421,7 @@
 
           <section>
             <h3 class="neon-arrow">Elegant Landing Page Demo</h3>
-            <a href="../landing/index.html" class="project-tile project-card btn-neoglass-premium">
+            <a href="../landing/index.html" target="_blank" rel="noopener noreferrer" class="project-tile project-card btn-neoglass-premium">
               <img src="../assets/Landing-2.png" alt="Landing page design preview" width="90" height="150" loading="lazy" class="project-card-img">
             </a>
             <p>◦ A soft-toned landing page showcasing semantic markup, thoughtful spacing, and subtle interactive elements designed to enhance user engagement 
@@ -410,18 +430,10 @@
 
           <section id="Ecommerce-demo">
             <h3 class="neon-arrow">E - Commerce Demo</h3> 
-            <a href="./projects/Ecom-demo/ecom-demo.html" class="project-tile project-card btn-neoglass-premium">
+            <a href="./projects/Ecom-demo/ecom-demo.html" target="_blank" rel="noopener noreferrer" class="project-tile project-card btn-neoglass-premium">
               <img src="../assets/E-com1.png" alt="Futuristic login preview" width="90" height="150" loading="lazy" class="project-card-img">
             </a>
             <p>◦ E-commerce landing page demonstrating layout systems, product sections, and structured UI components </p>
-          </section>
-
-          <section id="OTP-Generator">
-            <h3 class="neon-arrow">OTP Generator</h3> 
-            <a href="https://otp-generator-inky.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-tile project-card btn-neoglass-premium">
-              <img src="../assets/OTP.png" alt="OTP-Generator design preview" width="90" height="150" loading="lazy" class="project-card-img">
-            </a>
-            <p>◦ A lightweight one-time password generator focused on secure randomization, clean UI presentation, and practical JavaScript logic - a full modern React/Vite build running on Vercel </p>
           </section>
 
           <section id="Weather-App">
@@ -432,6 +444,31 @@
             </a>
             <p>◦ A responsive React application that fetches and displays real-time weather data, demonstrates API integration, component-based architecture and dynamic state updates </p>
             <p><small>Note:<em> Hosted on Render free tier — initial load may take a few seconds due to cold start</em></small> </p>
+          </section>
+
+          <section id="TSCalculator">
+            <h3 class="neon-arrow">Tested TypeScript Calculator</h3>
+            <a href="https://calcpro-lovat.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-tile project-card btn-neoglass-premium">
+            <img src="./assets/procalc.png" alt="Calculator Screenshot" width="90" height="150" loading="lazy">
+            </a>
+            <p>A production-ready calculator featuring automated interaction testing, strict type safety, and edge-case validation.</p>
+            <p><em>Tech:</em> React · TypeScript · Vitest · Testing Library · Vite</p>
+          </section>
+
+          <section id="login-secure">
+            <h3 class="neon-arrow">Secure Login Demo</h3> 
+            <a href="../projects/login-glossy/client/index.html" target="_blank" rel="noopener noreferrer" class="project-tile project-card btn-neoglass-premium">
+              <img src="../assets/Login2.png" alt="Modern register login preview " width="90" height="150" loading="lazy" class="project-card-img">
+            </a>
+            <p>◦ A modern login interface featuring animated form inputs, responsive layout behavior, and a user-focused visual experience </p>
+          </section>
+
+          <section id="OTP-Generator">
+            <h3 class="neon-arrow">OTP Generator</h3> 
+            <a href="https://otp-generator-inky.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-tile project-card btn-neoglass-premium">
+              <img src="../assets/OTP.png" alt="OTP-Generator design preview" width="90" height="150" loading="lazy" class="project-card-img">
+            </a>
+            <p>◦ A lightweight one-time password generator focused on secure randomization, clean UI presentation, and practical JavaScript logic - a full modern React/Vite build running on Vercel </p>
           </section>
 
         </div>
