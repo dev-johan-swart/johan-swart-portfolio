@@ -8,6 +8,7 @@
   --bg-main: linear-gradient(76deg, #1d3c5e 0%, #181719 100%);
   --neon-blue: rgba(0, 243, 255, 0.85);
   --neon-purple: rgba(0, 81, 255, 0.85);
+  --color-accent: #0077cce8;
   --bg:#0a0a0f;
   --card:#141420;
   --text:#e0e0ff;
@@ -1078,6 +1079,17 @@ html {
   #projects-2 section p.neon-arrow {
     max-width: 85%;
   }
+}
+
+.project-links a {
+  margin-right: 1rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
 }
 
 .unique-text {
